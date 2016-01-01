@@ -2,8 +2,7 @@
 layout: page
 title: About
 ---
-
-![Stanley]({{ site.url }}/public/img/profile.jpg)
+<img style="float: left;" src="{{ site.url }}/public/img/profile.jpg">
 
 I am Junior at BITS Pilani double majoring in Biological Sciences & Electronics-Instrumentation . For the past couple of years I have been involved in Web Development (mainly back-end stuff). At Present, I also lead the technical team for Oasis 2016 (Cultural Festival of BITS Pilani.)
 
