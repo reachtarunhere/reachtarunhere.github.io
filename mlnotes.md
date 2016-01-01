@@ -21,7 +21,7 @@ TODO: Add link of GitHub Repo of notes.
 ### Contents
 
 {% for post in site.posts %}
-{% if post.hidden_category == ml %}
+{% if post.hidden_category == 'ml' %}
 * [{{ post.title }}]({{ post.urk }}) 
 {% endif %}
 {% endfor %}
