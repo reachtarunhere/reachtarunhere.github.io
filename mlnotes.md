@@ -20,10 +20,10 @@ TODO: Add link of GitHub Repo of notes.
 
 ### Contents
 
-* [Introduction to ML + Probabilty Review](http://jekyllrb.com)
-* [Naive Bayes](https://pages.github.com)
-* [SVM](http://sublimetext.com)
-* [Decision Trees](https://soundcloud.com/maddecent/sets/blood-bros-series)
+{% for post in site.posts %}
+* <a href="{{ post.url }}">{{ post.title }}</a>
+{% endfor %}
+
 
 
 ### Sources
