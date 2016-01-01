@@ -13,7 +13,7 @@ More recently I have shifted gears and now I am trying to teach myself selected 
 
 The blog is named Stanley as a tribute to [Stanley](https://en.wikipedia.org/wiki/Stanley_%28vehicle%29)  the autonomus car which got me interested in CV and ML.
 
-![Our MVP]({{ site.url }}/public/img/stanley1.jpg)
+![Stanley]({{ site.url }}/public/img/stanley1.jpg)
 
 ## Contact
 

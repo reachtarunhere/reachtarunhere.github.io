@@ -25,7 +25,7 @@ We used Django (my favorite) web framework for the backend and after a lot of di
 
 Screen-shot showing the editing of learning path.
 
-![My helpful screenshot]({{ site.url }}/public/img/1.png)
+![Learning Path]({{ site.url }}/public/img/1.png)
 
 
 * A very clean way to display the learning path.
