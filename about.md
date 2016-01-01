@@ -9,6 +9,12 @@ I enjoy contributing to FOSS and have worked with Honeynet as a part of Google S
 
 More recently I have shifted gears and now I am trying to teach myself selected topics in AI and Computer Vision. Currently *(Dec 2015 - Jan 2016) *I am working with gait data extracted from Kinect at Central Electronics Engineering Research Institute Pilani.
 
+## Blog
+
+The blog is named Stanley as a tribute to [Stanley](https://en.wikipedia.org/wiki/Stanley_%28vehicle%29)  the autonomus car which got me interested in CV and ML.
+
+![Our MVP]({{ site.url }}/public/img/stanley1.jpg)
+
 ## Contact
 
 * E-mail: reachtarunhere [AT] gmail [DOT] com
