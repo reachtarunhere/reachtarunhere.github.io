@@ -20,14 +20,11 @@ TODO: Add link of GitHub Repo of notes.
 
 ### Contents
 
-{% assign all_posts = site.posts | sort:"weight" %}  
+{% assign all_posts = site.mlnotes | sort:"weight" %}  
 {% for post in all_posts %}
-{% if post.hidden_category == 'ml' %}
-* [{{ post.title }}]({{ post.urk }}) 
+{% if post.hidden_category == 'ml' %}* [{{ post.title }}]({{ post.urk }}) 
 {% endif %}
 {% endfor %}
-
-
 
 ### Sources
 
