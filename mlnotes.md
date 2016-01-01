@@ -3,7 +3,7 @@ layout: page
 title: ML Notes
 ---
 
-Hey there! Welcome to the index of my Machine Learning notes. These notes are inspired from the notes at [Hole House](http://holehouse.org/mlclass/index.html). But unlike holehouse notes which have Prof. Ng's class as their main source these notes borrow a material from a lot of sources.
+Hey there! Welcome to the index of my Machine Learning notes. These notes are inspired from the notes at [Hole House](http://holehouse.org/mlclass/index.html). But unlike holehouse notes which have Prof. Ng's class as their main source these notes borrow material from a lot of sources.
 
 You might hate the formatting of these notes, more or less these can be treated as annoated screenshots. My goal here is not to be great at presentation but to create the most useful notes by putting in minimum time.
 
