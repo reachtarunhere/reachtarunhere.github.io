@@ -7,15 +7,15 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            reachtarunhere
+title:            Reboot
 tagline:          'My Blog'
 description:      'I am Junior at BITS double majoring in Biological Sciences & Electronics-Instrumentation .'
-url:              http://hyde.getpoole.com
+url:              https://reachtarunhere.github.io
 baseurl:          /
 
 author:
   name:           'Tarun Kumar Vangani'
-  url:            https://reachtarunhere.github.io
+  url:            http://www.bits-pilani.ac.in/spp/f2013817
 
 paginate:         5
 
@@ -23,4 +23,4 @@ paginate:         5
 version:          2.1.0
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/reachtarunhere
