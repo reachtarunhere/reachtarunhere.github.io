@@ -8,8 +8,8 @@ relative_permalinks: true
 
 # Setup
 title:            Reboot
-tagline:          'My Blog'
-description:      'I am Junior at BITS double majoring in Biological Sciences & Electronics-Instrumentation .'
+tagline:          'Too many interests, too little time!'
+description:      "Tarun Vangani's Blog"
 url:              https://reachtarunhere.github.io
 baseurl:          /
 

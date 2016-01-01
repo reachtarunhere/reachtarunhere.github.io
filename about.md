@@ -3,28 +3,15 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+I am Junior at BITS Pilani double majoring in Biological Sciences & Electronics-Instrumentation . For the past couple of years I have been involved in Web Development (mainly back-end stuff). At Present, I also lead the technical team for Oasis 2016 (Cultural Festival of BITS Pilani.)
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+I enjoy contributing to FOSS and have worked with Honeynet as a part of Google Summer of Code 2015. 
 
-There are currently two themes built on Poole:
+More recently I have shifted gears and now I am trying to teach myself selected topics in AI and Computer Vision. Currently *(Dec 2015 - Jan 2016) *I am working with gait data extracted from Kinect at Central Electronics Engineering Research Institute Pilani.
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+## Contact
 
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+* E-mail: reachtarunhere [AT] gmail [DOT] com
+* I am fairly active on Quora. [Quora Profile](https://www.quora.com/profile/Tarun-Kumar-27)
+* University Mail: f2013817 [AT] pilani.bits-pilani.ac.in
+* [University Profile](http://www.bits-pilani.ac.in/spp/f2013817)
