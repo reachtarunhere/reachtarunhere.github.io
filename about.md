@@ -2,9 +2,9 @@
 layout: page
 title: About
 ---
-<img style="float: left;" src="{{ site.url }}/public/img/profile.jpg">
+<img style="float: left;margin: 10px;" src="{{ site.url }}/public/img/profile.jpg">
 
-I am Junior at BITS Pilani double majoring in Biological Sciences & Electronics-Instrumentation . For the past couple of years I have been involved in Web Development (mainly back-end stuff). At Present, I also lead the technical team for Oasis 2016 (Cultural Festival of BITS Pilani.)
+I am Junior year student at BITS Pilani double majoring in Biological Sciences & Electronics-Instrumentation . For the past couple of years I have been involved in Web Development (mainly back-end stuff). At Present, I also lead the technical team for Oasis 2016 (Cultural Festival of BITS Pilani.)
 
 I enjoy contributing to FOSS and have worked with Honeynet as a part of Google Summer of Code 2015. 
 
