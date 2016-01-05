@@ -1,7 +1,6 @@
 ---
 layout: post
 title: How to run multiple blogs on Github Pages using Jekyll
-secondary: secondary
 ---
 
 Jekyll is a simple template generator that allows you to host blogs on github pages. Sometimes it may be required to host multiple blogs using a single github profile. This need may arise in the case when you might want to separate your personal blog with a tech blog. In my case I wanted the posts related to my Machine Learning Notes to appear separately and in a slightly different format. 
@@ -12,7 +11,7 @@ A single blog is easy to setup in under 3 minutes. You will require git to be in
 
 #### Step 1 Content Separation
 To keep your posts separate for different blogs in the _posts directory create one directory for each blog. 
-![Screenshot]({{ site.url }}/public/img/folder.jpeg)
+![Screenshot]({{ site.url }}/public/img/folder.jpg)
 If you reload you will still see all your posts listed together as before. This is because the directory separation we just did is only for our convenience and makes no difference for Jekyll.
 
 Now we will define a custom parameter in our post files that will allows Jekyll to figure out that our post belongs to which particular blog.
