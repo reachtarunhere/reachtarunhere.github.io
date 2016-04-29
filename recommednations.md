@@ -12,6 +12,7 @@ To be updated after I am done with exams. Most of the stuff here comes from hack
 # Books
 
 I don't read a lot but I am trying to change that.
+
 ###  Currently Reading:
 - **AIMA 3rd Ed** as a prepratory exercise for GSoC 16.
 - **iWoz** - Steve Wozniak's Autobiography. I will resume after the comprees are done. So far the book has maintained a really exciting tone.
