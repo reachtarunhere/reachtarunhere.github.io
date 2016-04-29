@@ -1,18 +1,18 @@
 ---
 layout: page
-title: Recommendations - Blogs/Books/Movies
+title: Blogs/Books/Movies-I Like
 ---
 
 This is just an index of my recommendations for Books, Movies & Articles/Blog Posts on the Internet. Obviouslly the list is incomplete because I am not putting in much effort into moving older stuff here.
 
-#Online Stuff
+# Online Stuff
 
 To be updated after I am done with exams. Most of the stuff here comes from hackernews and reddit though.
 
-#Books
+# Books
 
 I don't read a lot but I am trying to change that.
-### Currently Reading:
+###  Currently Reading:
 - **AIMA 3rd Ed** as a prepratory exercise for GSoC 16.
 - **iWoz** - Steve Wozniak's Autobiography. I will resume after the comprees are done. So far the book has maintained a really exciting tone.
 
@@ -21,7 +21,7 @@ I don't read a lot but I am trying to change that.
 - **The Last Lecture** - Prof Randy Pausch managed to change my opinion about several things in life with this little book. I still don't have a clean desk but I now realize the merits of one.
 
 
-#Movies
+# Movies
 
 Like most BITSians I tend to watch a lot of movies. I use [tastekid](tastekid.com) for movie recommendations. It has functionality to import movies from Facebook which came in pretty handy in my case.
 
