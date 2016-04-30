@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Apogee Website Inauguration by Nobel Laureate Kailash Satyarthi
+comments: true
 ---
 
 The last week ended up being pretty packed, thanks to two major projects namely the Apogee Website and Jaipur Hackathon.

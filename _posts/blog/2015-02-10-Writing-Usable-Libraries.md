@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Writing Usable Libraries
+comments: true
 ---
 
 This post is about major takeaways from Python for Humans (http://www.pyvideo.org/video/337...) I watched sometime back.

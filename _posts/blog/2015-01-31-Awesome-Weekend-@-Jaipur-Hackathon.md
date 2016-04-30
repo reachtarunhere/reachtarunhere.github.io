@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Awesome Weekend @ Jaipur Hackathon
+comments: true
 ---
 
 The 2nd semester of this year has just started and as the days were going rather uneventful. We (Pranjal +Me) decided to attend Jaipur Hackathon.
