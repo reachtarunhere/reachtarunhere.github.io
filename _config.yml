@@ -26,3 +26,5 @@ github:
 
 gems:
   - jekyll-seo-tag
+
+future: true
