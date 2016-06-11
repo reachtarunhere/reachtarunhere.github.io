@@ -18,3 +18,4 @@ Finally (??), They are now removing all the courses on the old platform. This is
 
 Screenshots? Thank You!
 
+** Update: Sunday, 12. June 2016 03:30AM ** - As of now Coursera is not charging for quizzes in every course on the new platform. Some of the courses are still completly free to enroll with full course except the certificate. I hope they keep it this way.
