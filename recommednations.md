@@ -7,11 +7,29 @@ This is just an index of my recommendations for Books, Movies & Articles/Blog Po
 
 # Online Stuff
 
-To be updated after I am done with exams. Most of the stuff here comes from hackernews and reddit though.
+Below is a list of blogs I like in no particular order:
+
+- [Daniel Lemire's Blog](http://lemire.me/) - Interesting musing on Tech and how it affects us. Posts on comparing life in academia to industry and reason why (not) to do a PhD.
+
+- [Everything I Know About Python...](https://jeffknupp.com) - Intutive explanations of Python Constructs.
+
+- [Math ∩ Programming](https://jeremykun.com/) - Math for programmers.
+
+- [effbot.org](effbot.org) -  Hundreds of articles on Python and related technologies.
+
+- [Materials by Dr. Peter Norvig](http://norvig.com) - Among everything list here. THIS is the best one if you are a programmer/hacker. The elegance of the code will make you wonder "Can I do it better?" and the answer almost always will be "No".** Shameless Plug: ** *Also give a look to notebooks in [aima-python](https://github.com/aimacode/aima-python)  some of which were done by me under his guidance.*
+
+- [Paul Graham's Essays](http://www.paulgraham.com/articles.html) - Essays mostly on Tech, Startups and LISP by a great hacker. These are often long so make sure you have time on your hands because it would be impossible to stop reading untill you are done.
+
+- [James Altucher's Site](http://www.jamesaltucher.com) - Controversial Life Advice. Only 15-20% posts are worth reading. But the quality of this small percentage is outstanding.
+
+- [Cambridge Coding Blog](https://blog.cambridgecoding.com) - Introductory ML Posts using Python.
+ 
+- [Andrej Karpathy's Blog](http://karpathy.github.io) - Very high quality material on AI, Neural Networks from a real expert in the area.
 
 # Books
 
-I don't read a lot but I am trying to change that.
+I don't read a lot but I am trying to change that. My reading lists along with some reviews are available on [Goodreads](https://www.goodreads.com/user/show/32095774-tarun-vangani).
 
 ###  Currently Reading:
 - **AIMA 3rd Ed** as a prepratory exercise for GSoC 16.
@@ -38,5 +56,6 @@ I also watched some other among them I would say King's Speech was very average 
 - **Schindler's List** - Got me interested in reading about World War. Great Movie! WARNING: The movie is really sad and graphic.
 - **The Pianist** - Same as above.
 - **Dead Poet's Society** - Like 3 Idiots but only 100 x better.
+- ** Mary Kom ** - Very inspirational boxing movie. The book is even better. [Book Review](http://reachtarunhere.github.io/2016/08/20/Review-Unbreakable-Mary-Kom/)
 
 
