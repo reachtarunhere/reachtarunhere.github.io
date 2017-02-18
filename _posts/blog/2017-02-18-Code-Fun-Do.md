@@ -14,5 +14,12 @@ Participating in Microsoft's Code Fun Do for the third time with Zibbu. The last
 
 In Background: [Dying Lama](https://www.youtube.com/watch?v=TwG7MASKgpw) 
 
+Saturday, 18. February 2017 02:55PM 
+
+No progresss so far. Got stuck due to crappy internet. Fixed now.
+
+In Background: [In Motion](https://www.youtube.com/watch?v=Yczul_609Gg) 
+
+
 
 
