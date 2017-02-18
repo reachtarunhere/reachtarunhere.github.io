@@ -20,6 +20,12 @@ No progresss so far. Got stuck due to crappy internet. Fixed now.
 
 In Background: [In Motion](https://www.youtube.com/watch?v=Yczul_609Gg) 
 
+Sunday, 19. February 2017 12:38AM 
+
+Got the neural net model working. Now lets learn how to do a queue to handle images as byte streams.
+
+"I don't know why Electron is performing poorly for our task. We are sticking to node." - Zibbu
+
 
 
 
