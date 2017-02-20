@@ -26,6 +26,14 @@ Got the neural net model working. Now lets learn how to do a queue to handle ima
 
 "I don't know why Electron is performing poorly for our task. We are sticking to node." - Zibbu
 
+Monday, 20. February 2017 06:49PM 
+
+![ ]({{ site.url }}/public/img/cfd.png "Code Fun Do")
+
+We got the basic pre-trained model working for videos. Example above. Unfortunately we failed to get everything working with Youtube (youtube-dl) in the given time.
+
+It was fun nevertheless.
+
 
 
 
