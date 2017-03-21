@@ -2,11 +2,11 @@
 layout: page
 title: About
 ---
-<img style="float: left;margin: 10px;" src="{{ site.url }}/public/img/profile.jpg">I am a Junior year student at BITS Pilani double majoring in Biological Sciences & Electronics-Instrumentation . For the past couple of years I have been involved in Web Development (mainly back-end stuff). At Present, I also lead the technical team for Oasis 2016 (Cultural Festival of BITS Pilani.)
+<img style="float: left;margin: 10px;" src="{{ site.url }}/public/img/profile.jpg"> I am a pre-final year student at BITS Pilani double majoring in Biological Sciences & Electronics-Instrumentation. In the past I have been involved in Web Development (mainly back-end stuff). I also lead the technical team for [Oasis 2016](bits-oasis.org)  (Cultural Festival of BITS Pilani.)
 
-I enjoy contributing to FOSS and have worked with Honeynet as a part of Google Summer of Code 2015. 
+I enjoy contributing to FOSS and have worked with Honeynet developing [Rumal](https://thugs-rumal.github.io/)  as part of Google Summer of Code 2015. Last summer (2016) I worked under the guidance of [Dr. Peter Norvig](norvig.com)  on Python implementations and visualizations for [Artifical Intelligence : A Modern Approach](http://aima.cs.berkeley.edu/).
 
-More recently I have shifted gears and now I am trying to teach myself selected topics in AI and Computer Vision. Currently *(Dec 2015 - Jan 2016) *I am working with gait data extracted from Kinect at Central Electronics Engineering Research Institute Pilani.
+These days I spend most of my free time working through Deep learning MOOCs and Books.
 
 ## Blog
 
@@ -17,6 +17,6 @@ The blog is named Stanley as a tribute to [Stanley](https://en.wikipedia.org/wik
 ## Contact
 
 * E-mail: reachtarunhere [AT] gmail [DOT] com
-* I am fairly active on Quora. [Quora Profile](https://www.quora.com/profile/Tarun-Kumar-27)
+* I ~~am~~ used to be fairly active on Quora. [Quora Profile](https://www.quora.com/profile/Tarun-Kumar-27)
 * University Mail: f2013817 [AT] pilani.bits-pilani.ac.in
 * [University Profile](http://www.bits-pilani.ac.in/spp/f2013817)
