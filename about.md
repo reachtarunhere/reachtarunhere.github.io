@@ -2,7 +2,7 @@
 layout: page
 title: About
 ---
-<img style="float: left;margin: 10px;" src="{{ site.url }}/public/img/profile.jpg"> I am a pre-final year student at BITS Pilani double majoring in Biological Sciences & Electronics-Instrumentation. In the past I have been involved in Web Development (mainly back-end stuff). I also lead the technical team for [Oasis 2016](http://bits-oasis.org)  (Cultural Festival of BITS Pilani.)
+<img style="float: left;margin: 10px;" src="{{ site.url }}/public/img/instaprofile.jpg"> I am a pre-final year student at BITS Pilani double majoring in Biological Sciences & Electronics-Instrumentation. In the past I have been involved in Web Development (mainly back-end stuff). I also lead the technical team for [Oasis 2016](http://bits-oasis.org)  (Cultural Festival of BITS Pilani.)
 
 I enjoy contributing to FOSS and have worked with Honeynet developing [Rumal](https://thugs-rumal.github.io/)  as part of Google Summer of Code 2015. Last summer (2016) I worked under the guidance of [Dr. Peter Norvig](http://norvig.com)  on Python implementations and visualizations for [Artifical Intelligence : A Modern Approach](http://aima.cs.berkeley.edu/).
 
