@@ -17,7 +17,7 @@ Below is a list of blogs I like in no particular order:
 
 - [effbot.org](effbot.org) -  Hundreds of articles on Python and related technologies.
 
-- [Materials by Dr Peter Norvig](http://norvig.com) - Among everything list here. THIS is the best one if you are a programmer/hacker. The elegance of the code will make you wonder "Can I do it better?" and the answer almost always will be "No".** Shameless Plug: ** *Also give a look to notebooks in [aima-python](https://github.com/aimacode/aima-python)  some of which were done by me under his guidance.*
+- [Materials by Dr Peter Norvig](http://norvig.com) - Among everything list here. THIS is the best one if you are a programmer/hacker. The elegance of the code will make you wonder "Can I do it better?" and the answer almost always will be "No". **Shameless Plug:** *Also give a look to notebooks in [aima-python](https://github.com/aimacode/aima-python)  some of which were done by me in his guidance.*
 
 - [Paul Graham's Essays](http://www.paulgraham.com/articles.html) - Essays mostly on Tech, Startups and LISP by a great hacker. These are often long so make sure you have time on your hands because it would be impossible to stop reading until you are done.
 
@@ -56,4 +56,4 @@ I also watched some other among them I would say King's Speech was very average 
 - **Schindler's List** - Got me interested in reading about World War. Great Movie! WARNING: The movie is really sad and graphic.
 - **The Pianist** - Same as above.
 - **Dead Poet's Society** - Like 3 Idiots but only 100 x better.
-- ** Mary Kom ** - Very inspirational boxing movie. The book is even better. [Book Review](http://reachtarunhere.github.io/2016/08/20/Review-Unbreakable-Mary-Kom/)
+- **Mary Kom** - Very inspirational boxing movie. The book is even better. [Book Review](http://reachtarunhere.github.io/2016/08/20/Review-Unbreakable-Mary-Kom/)

@@ -10,7 +10,7 @@ These days I spend most of my free time working through Deep learning MOOCs and 
 
 ## Blog
 
-The blog is named Stanley as a tribute to [Stanley](https://en.wikipedia.org/wiki/Stanley_%28vehicle%29)  the autonomus car which got me interested in CV and ML.
+The blog is named Stanley as a tribute to [Stanley](https://en.wikipedia.org/wiki/Stanley_%28vehicle%29)  the autonomous car which got me interested in CV and ML.
 
 ![Stanley]({{ site.url }}/public/img/stanley1.jpg)
 

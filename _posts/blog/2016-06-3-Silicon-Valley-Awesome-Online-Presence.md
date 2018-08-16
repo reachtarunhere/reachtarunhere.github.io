@@ -20,5 +20,5 @@ The online fun does not end here. They even ended up putting a site for the Code
 
 ![ ]({{ site.url }}/public/img/code-rag.png  "Code Rag")
 
-What is really interesting about all that is the attempt they have made to give everything an original feel. If you scan through Winnie's previous contributions you see that they wrote  a script to add the previous contributions, forked repos and now the account is merging pull requests. This is awesome!
+What is really interesting about all that is the attempt they have made to give everything an original feel. If you scan through Winnie's previous contributions you see that they wrote a script to add the previous contributions, forked repos and now the account is merging pull requests. This is awesome!
 
