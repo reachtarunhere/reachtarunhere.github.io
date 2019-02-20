@@ -9,6 +9,7 @@ comments: true
 For someone who is a sucker for sad movies [Days of Being Wild](https://en.wikipedia.org/wiki/Days_of_Being_Wild) is a total treat. I was recommended this movie by someone quite credible so I didn't do any research before I sat down to watch it. The cinematography with a frame inside a frame style was disturbingly reminiscent of [In the Mood for Love](https://en.wikipedia.org/wiki/In_the_Mood_for_Love) so I paused midway and lo behold it is sorta a prequel to it.
 
 ![We became friends started from that minute ... to 2 minutes ... and later we dated for at least an hour a day]({{ site.url }}/public/img/being_wild.jpg)
+*We became friends started from that minute ... to 2 minutes ... and later we dated for at least an hour a day*
 
 The movie follows the lives of a few young adults in Hong Kong as they try to find meaning through love. What really caught my eye was the contrast in which an older character deals with the idea of companionship in a largely practical over the passionate way. At some point, she tells a young heartbroken Leung Fung-ying about how she used to be like her. The scene that immediately follows leaves more than enough room for doubt in the minds of a viewer. Has our older character made peace with how things work in life and come out wiser? Or has she only managed to drown herself in enough stimuli to repress the idea of consciously thinking about it?
 
