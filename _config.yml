@@ -6,15 +6,15 @@ highlighter:      rouge
 permalink:        pretty
 
 # Setup
-title:            Stanley
+title:            Stochastic Life
 tagline:          'Too many interests, too little time!'
 description:      "Tarun Vangani's Blog"
-url:              https://reachtarunhere.github.io
+url:              https://stochastic.life
 baseurl:          /
 
 author:
   name:           'Tarun Kumar Vangani'
-  url:            http://www.bits-pilani.ac.in/spp/f2013817
+  url:            http://twitter.com/reachtarunhere
 
 paginate:         5
 
