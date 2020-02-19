@@ -78,3 +78,9 @@ Therefore some other piece of code (in the same or different thread) which had a
 > *10  <br> 109*
 
 Therefore in terms of consequences shadowing != mutation
+
+### Further Reading
+
+- [You can't do redeclarations in C because they aren't bindings](https://stackoverflow.com/questions/41993585/redeclaring-variables-in-c)
+- [An example of how Rust's type system makes code safe by preventing mutation based on references](https://stackoverflow.com/questions/53235334/in-rust-whats-the-difference-between-shadowing-and-mutability)
+- [Order of freeing memory in case of Bindings vs Mutable Variables in Rust](https://stackoverflow.com/questions/40621325/why-do-i-need-rebinding-shadowing-when-i-can-have-mutable-variable-binding)
