@@ -21,7 +21,7 @@ My first understanding of the idea of the immutable concept was that `x` cannot 
 
 What?? `x` just got incremented. Isn't this exactly what we are trying to prevent? Nope, in reality, it is more like two different variables that are just spelt with the same ASCII name. One way to think about it is that after making the second binding the first binding hasn't gone away but we have only lost a way to get to it because having the same name allows us to only refer to the most recent one. The previous binding has been shadowed.
 
-Here is some Python code which demonstrates the idea of shadowing:
+Programmers in imperative languages and functional languages alike frequently deal with shadowing when it comes to scoping in functions. Here is a simple Python example:
 
     x = 32
     
