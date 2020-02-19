@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shadowing is NOT Mutation
+title: Shadowing is not Mutation
 comments: true
 ---
 
