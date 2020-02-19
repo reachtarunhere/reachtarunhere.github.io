@@ -19,7 +19,15 @@ My first understanding of the idea of the immutable concept was that `x` cannot 
 
 > *val x = 33 : int*
 
-What?? `x` just got incremented. Isn't this exactly what we are trying to prevent? Nope, in reality, it is more like two different variables that are just spelt with the same ASCII name. One way to think about it is that after making the second binding the first binding hasn't gone away but we have only lost a way to get to it because having the same name allows us to only refer to the most recent one. The previous binding has been shadowed.
+What?? `x` just got incremented. Isn't this mutation? Nope, the difference lies in the fact that the above is not an assignment statement like many programming languages. Let's take an example in C programming language with code that looks pretty much the same:
+
+    int x = 32;
+	x = 33;
+
+Here `=` is the assignment operator and not a binding. In the case of C the first stament reserves some space in the memory and then puts 32 in it. The second statement then takes 33 and overwrites the memory where 32 was present.
+
+
+For SML 32 is not replaced by 33. It is more like now we have two different variables that are just spelt with the same ASCII name. One way to think about it is that after making the second binding the first binding hasn't gone away but we have only lost a way to get to it because having the same name allows us to only refer to the most recent one. We say that the previous binding has been shadowed.
 
 Programmers in imperative languages and functional languages alike frequently deal with shadowing when it comes to scoping in functions. Here is a simple Python example:
 
