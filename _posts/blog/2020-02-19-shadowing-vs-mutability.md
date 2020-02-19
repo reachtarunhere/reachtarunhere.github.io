@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Shadowing vs Mutability
+title: Shadowing is NOT Mutation
 comments: true
 ---
 
