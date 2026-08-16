@@ -3,8 +3,11 @@ title: "A fresh start"
 date: 2026-08-16
 description: "Welcome to my new website."
 draft: false
-tags: []
-categories: []
+tags:
+  - hugo
+  - personal-site
+categories:
+  - Updates
 toc: false
 math: false
 ---
