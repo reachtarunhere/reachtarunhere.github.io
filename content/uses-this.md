@@ -9,6 +9,8 @@ A living list of the tools, technology, and everyday things I use and enjoy. I�
 
 Coming soon.
 
+---
+
 ## Hardware
 
 ### Boox Note Air 5C
@@ -21,9 +23,13 @@ An e-ink notebook and reader. I’ll add a photo and more notes about how I use 
 
 I do not like spending much money on phones: I am always a little worried about breaking them. But I really love this one’s design. The screen is also wonderfully responsive to touch.
 
+---
+
 ## Software
 
 Coming soon.
+
+---
 
 ## Reading and learning
 
