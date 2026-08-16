@@ -49,7 +49,9 @@ A curated collection of links, essays, and books that I think are especially wor
 
 ## Applied Math
 
-I am not smart enough for—or interested in—doing things that I do not find super useful.
+I am not smart enough for—or interested in—doing things that I do not find super useful or fun. Unlike many of my peers, I do not enjoy solving puzzles unless they connect to a real-life concept.
+
+- <span class="recommendation-type">Videos</span> [3Blue1Brown: Linear Algebra](https://www.3blue1brown.com/?topic=linear-algebra)
 
 ---
 
