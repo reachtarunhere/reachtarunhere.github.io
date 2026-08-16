@@ -1,6 +1,6 @@
 baseURL = "https://reachtarunhere.github.io/"
 languageCode = "en"
-title = "Tarun Kumar Vangani"
+title = "One Random Walk"
 theme = "hugo-texify3"
 enableRobotsTXT = true
 
@@ -15,7 +15,7 @@ enableRobotsTXT = true
   unsafe = true
 
 [params]
-  title = "Tarun Kumar Vangani"
+  title = "One Random Walk"
   author = "Tarun Kumar Vangani"
   description = "Personal website"
   footnote = "Powered by Hugo | Theme TeXify3"
@@ -27,7 +27,7 @@ enableRobotsTXT = true
   enableDuckDuckGoSearchBox = false
   numberedSubtitles = false
   customCSS = ["css/site.css"]
-  customJS = []
+  customJS = ["js/random-walk.js"]
 
 [params.commentEngine]
   code = ""
