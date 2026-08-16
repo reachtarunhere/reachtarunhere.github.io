@@ -11,7 +11,15 @@ Coming soon.
 
 ## Hardware
 
-Coming soon.
+### Boox Note Air 5C
+
+An e-ink notebook and reader. I’ll add a photo and more notes about how I use it soon.
+
+### Nothing Phone 3a Lite
+
+I do not like spending much money on phones: I am always a little worried about breaking them. But I really love this one’s design. The screen is also wonderfully responsive to touch.
+
+> *A back-view photo of the phone will go here.*
 
 ## Software
 
