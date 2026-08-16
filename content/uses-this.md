@@ -5,12 +5,6 @@ toc: false
 
 A living list of the tools, technology, and everyday things I use and enjoy. I’ll fill this in with my current setup soon.
 
-## Work
-
-Coming soon.
-
----
-
 ## Hardware
 
 ### Boox Note Air 5C
@@ -37,8 +31,14 @@ I do not like spending much money on phones: I am always a little worried about 
 
 #### Modus Themes
 
----
+### Syncthing
 
-## Reading and learning
+### Orgzly Revived
 
-Coming soon.
+### AeroSpace
+
+I originally came from the Linux world and loved using i3. AeroSpace is not quite the same, but it offers enough of that experience to make macOS bearable.
+
+#### Karabiner-Elements
+
+I use Karabiner-Elements together with AeroSpace.
