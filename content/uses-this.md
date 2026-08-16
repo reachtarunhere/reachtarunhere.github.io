@@ -27,7 +27,15 @@ I do not like spending much money on phones: I am always a little worried about 
 
 ## Software
 
-Coming soon.
+### Emacs
+
+#### Org mode
+
+#### TRAMP
+
+#### gptel
+
+#### Modus Themes
 
 ---
 
