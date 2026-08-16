@@ -13,10 +13,8 @@ Coming soon.
 
 ## Life
 
-### Books
-
-- *[Designing Your Work Life](https://designingyour.work/)* by Bill Burnett and Dave Evans
-- *[The Secrets of a Buccaneer-Scholar](https://www.satisfice.com/blog/archives/50)* by James Bach
+- <small>Book</small> *[Designing Your Work Life](https://designingyour.work/)* by Bill Burnett and Dave Evans
+- <small>Book</small> *[The Secrets of a Buccaneer-Scholar](https://www.satisfice.com/blog/archives/50)* by James Bach
 
 ---
 
