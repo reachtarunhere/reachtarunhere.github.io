@@ -1,5 +1,9 @@
 ---
 title: "Me"
+build:
+  render: never
+  list: never
+  publishResources: false
 toc: false
 ---
 

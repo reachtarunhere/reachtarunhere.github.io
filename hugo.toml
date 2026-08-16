@@ -46,26 +46,21 @@ enableRobotsTXT = true
   telegram = false
 
 [[menu.main]]
-  name = "Me"
-  url = "/me/"
-  weight = 1
-
-[[menu.main]]
   name = "Uses This"
   url = "/uses-this/"
-  weight = 2
+  weight = 1
 
 [[menu.main]]
   name = "Links & Books"
   url = "/links-books/"
-  weight = 3
+  weight = 2
 
 [[menu.main]]
   name = "Blog"
   url = "/posts/"
-  weight = 4
+  weight = 3
 
 [[menu.main]]
   name = "RSS"
   url = "/index.xml"
-  weight = 5
+  weight = 4
