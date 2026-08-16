@@ -1,0 +1,48 @@
+{{ define "head" }}
+{{ $options := dict "transpiler" "dartsass" "targetPath" "css/index.css" }}
+{{ with resources.Get "sass/layouts/index.scss" | toCSS $options | postCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+{{ end }}
+{{ end }}
+
+{{ define "main" }}
+<main class="grid-container">
+  <div id="content" class="index">
+    {{ with .Site.GetPage "_index.md" }}
+      {{ .Content }}
+    {{ end }}
+
+    {{ $posts := where .Site.RegularPages "Type" "posts" }}
+    {{ if $posts }}
+      <section>
+        <h2>Recent posts</h2>
+        <ul>
+          {{ range first 5 $posts.ByDate.Reverse }}
+            <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <small>({{ .PublishDate.Format $.Site.Params.dateFormat }})</small></li>
+          {{ end }}
+        </ul>
+        <p><a href="{{ "/posts/" | relURL }}">All posts →</a></p>
+      </section>
+    {{ end }}
+  </div>
+
+  <div class="sidebar">
+    {{ if .Site.Taxonomies.categories }}
+      <h3 class="taxonomy"><a href="{{ "/categories/" | relURL }}">Categories</a></h3>
+      <ul class="nav-list sidenav">
+        {{ range first 10 ($.Site.GetPage "taxonomyTerm" "categories").Pages }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+    {{ if .Site.Taxonomies.tags }}
+      <h3 class="taxonomy"><a href="{{ "/tags/" | relURL }}">Tags</a></h3>
+      <ul class="nav-list sidenav">
+        {{ range first 10 ($.Site.GetPage "taxonomyTerm" "tags").Pages }}
+          <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  </div>
+</main>
+{{ end }}
