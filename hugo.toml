@@ -1,0 +1,56 @@
+baseURL = "https://reachtarunhere.github.io/"
+languageCode = "en"
+title = "Tarun Kumar Vangani"
+theme = "hugo-texify3"
+enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 5
+
+[taxonomies]
+  tags = "tags"
+  categories = "categories"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[params]
+  title = "Tarun Kumar Vangani"
+  author = "Tarun Kumar Vangani"
+  description = "Personal website"
+  footnote = "Powered by Hugo | Theme TeXify3"
+  dateFormat = "2 January 2006"
+  emphasisWithDots = true
+  toc = true
+  rootFontSize = "105%"
+  math = false
+  enableDuckDuckGoSearchBox = false
+  numberedSubtitles = false
+  customCSS = []
+  customJS = []
+
+[params.commentEngine]
+  code = ""
+
+[params.buymeacoffee]
+  code = ""
+
+[params.sharingbuttons]
+  facebook = false
+  twitter = false
+  email = true
+  linkedin = false
+  reddit = false
+  whatsapp = false
+  hackernews = false
+  telegram = false
+
+[[menu.main]]
+  name = "Blog"
+  url = "/posts/"
+  weight = 1
+
+[[menu.main]]
+  name = "RSS"
+  url = "/index.xml"
+  weight = 2

@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://reachtarunhere.github.io/sitemap.xml
