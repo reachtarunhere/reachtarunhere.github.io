@@ -3,7 +3,72 @@
   height: 5rem;
   margin: 0 0 1rem;
   max-width: 100%;
+  overflow: visible;
   width: 100%;
+}
+
+.random-walk-trail {
+  display: none;
+}
+
+.random-walk-dot {
+  fill: var(--blue);
+}
+
+.random-walk-walker {
+  animation: random-walk-pulse 1.2s ease-in-out infinite;
+  fill: var(--blue);
+  opacity: 1;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes random-walk-pulse {
+  0%, 100% { opacity: 0.7; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.35); }
+}
+
+.random-walk-walker.is-happy {
+  animation: random-walk-happy 0.65s ease-out;
+}
+
+@keyframes random-walk-happy {
+  0% { opacity: 1; transform: scale(1); }
+  45% { opacity: 1; transform: scale(2); }
+  100% { opacity: 0.7; transform: scale(0.85); }
+}
+
+.random-walk-waypoint {
+  color: var(--fg4);
+  fill: var(--bg);
+  opacity: 0.65;
+  stroke: currentColor;
+  stroke-width: 1.25;
+}
+
+.random-walk-waypoint text {
+  fill: currentColor;
+  font-family: inherit;
+  font-size: 10px;
+  opacity: 0;
+  stroke: none;
+  transition: opacity 0.2s ease;
+}
+
+.random-walk-waypoint.is-encountered {
+  animation: random-walk-encounter 1s ease-out;
+  color: var(--blue);
+  opacity: 1;
+}
+
+.random-walk-waypoint.is-encountered text {
+  opacity: 1;
+}
+
+@keyframes random-walk-encounter {
+  0% { opacity: 0.65; }
+  35% { opacity: 1; }
+  100% { opacity: 0.65; }
 }
 
 .recommendation-type {

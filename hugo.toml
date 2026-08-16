@@ -27,7 +27,7 @@ enableRobotsTXT = true
   enableDuckDuckGoSearchBox = false
   numberedSubtitles = false
   customCSS = ["css/site.css"]
-  customJS = ["js/random-walk.js"]
+  customJS = []
 
 [params.commentEngine]
   code = ""

@@ -1,72 +1,66 @@
 (() => {
-  const canvas = document.getElementById("random-walk");
-  if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const walk = document.getElementById("random-walk");
+  if (!walk) return;
 
-  const context = canvas.getContext("2d");
-  const step = 5;
-  const interval = 100;
-  const initialSteps = 75;
-  const edge = 12;
-  let x;
-  let y;
-  let angle;
+  const trail = walk.querySelector(".random-walk-trail");
+  const point = walk.querySelector(".random-walk-point");
+  const width = 800;
+  const height = 96;
+  const padding = 12;
+  const step = 9;
+  const maxPoints = 90;
+  const initialPoints = 42;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let x = width / 2;
+  let y = height / 2;
+  let angle = Math.random() * Math.PI * 2;
+  let points = [];
   let timer;
 
-  const color = () =>
-    getComputedStyle(document.documentElement).getPropertyValue("--blue").trim() || "#458588";
+  function nextPoint() {
+    angle += (Math.random() - 0.5) * 0.9;
+    let nextX = x + Math.cos(angle) * step;
+    let nextY = y + Math.sin(angle) * step;
 
-  function drawStep() {
-    const { width, height } = canvas.getBoundingClientRect();
-    const nextAngle = angle + (Math.random() - 0.5) * 1.25;
-    let nextX = x + Math.cos(nextAngle) * step;
-    let nextY = y + Math.sin(nextAngle) * step;
-
-    if (nextX < edge || nextX > width - edge || nextY < edge || nextY > height - edge) {
+    if (nextX < padding || nextX > width - padding || nextY < padding || nextY > height - padding) {
       angle += Math.PI + (Math.random() - 0.5);
-      return;
+      nextX = x + Math.cos(angle) * step;
+      nextY = y + Math.sin(angle) * step;
     }
 
-    context.beginPath();
-    context.moveTo(x, y);
-    context.lineTo(nextX, nextY);
-    context.stroke();
-    x = nextX;
-    y = nextY;
-    angle = nextAngle;
+    x = Math.max(padding, Math.min(width - padding, nextX));
+    y = Math.max(padding, Math.min(height - padding, nextY));
+    points.push([x, y]);
+    if (points.length > maxPoints) points.shift();
+  }
+
+  function render() {
+    trail.setAttribute("points", points.map(([px, py]) => `${px.toFixed(1)},${py.toFixed(1)}`).join(" "));
+    point.setAttribute("cx", x.toFixed(1));
+    point.setAttribute("cy", y.toFixed(1));
   }
 
   function reset() {
-    const scale = Math.min(window.devicePixelRatio || 1, 2);
-    const { width, height } = canvas.getBoundingClientRect();
-    canvas.width = Math.max(1, Math.floor(width * scale));
-    canvas.height = Math.max(1, Math.floor(height * scale));
-    context.setTransform(scale, 0, 0, scale, 0, 0);
-    context.clearRect(0, 0, width, height);
-    context.strokeStyle = color();
-    context.globalAlpha = 0.72;
-    context.lineWidth = 1.35;
-    context.lineCap = "round";
-    context.lineJoin = "round";
     x = width / 2;
     y = height / 2;
     angle = Math.random() * Math.PI * 2;
-
-    for (let index = 0; index < initialSteps; index += 1) drawStep();
+    points = [[x, y]];
+    for (let index = 0; index < initialPoints; index += 1) nextPoint();
+    render();
   }
 
   function start() {
     window.clearInterval(timer);
     reset();
-    timer = window.setInterval(drawStep, interval);
+    if (!reducedMotion) timer = window.setInterval(() => {
+      nextPoint();
+      render();
+    }, 120);
   }
 
   start();
-  window.addEventListener("resize", start, { passive: true });
   document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      window.clearInterval(timer);
-    } else {
-      start();
-    }
+    if (document.hidden) window.clearInterval(timer);
+    else start();
   });
 })();

@@ -8,7 +8,86 @@
 {{ define "main" }}
 <main class="grid-container">
     <div id="content" class="index">
-        <canvas id="random-walk" class="random-walk" aria-hidden="true"></canvas>
+        <svg id="random-walk" class="random-walk" viewBox="0 0 800 96" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <polyline class="random-walk-trail" points="400,48 408,43 416,46 423,53 431,50 439,56 447,52 455,58 463,54 471,60 479,57 487,63 495,59 503,65 511,61 519,67 527,64 535,70 543,66 551,72 559,69 567,75 575,71"></polyline>
+            <g class="random-walk-dots"></g>
+        </svg>
+        <script>
+        (() => {
+          const svg = document.getElementById("random-walk");
+          if (!svg) return;
+
+          const dots = svg.querySelector(".random-walk-dots");
+          const namespace = "http://www.w3.org/2000/svg";
+          const width = 800;
+          const height = 96;
+          const padding = 10;
+          const step = 9;
+          const maximumDots = 110;
+          let x = width / 2;
+          let y = height / 2;
+          let angle = Math.random() * Math.PI * 2;
+          let walker;
+          let timer;
+
+          function addDot(px, py, className, radius) {
+            const dot = document.createElementNS(namespace, "circle");
+            dot.setAttribute("cx", px.toFixed(1));
+            dot.setAttribute("cy", py.toFixed(1));
+            dot.setAttribute("r", radius);
+            dot.setAttribute("class", className);
+            dots.append(dot);
+            return dot;
+          }
+
+          function fadeTrail() {
+            const trailDots = dots.querySelectorAll(".random-walk-dot");
+            trailDots.forEach((dot, index) => {
+              const progress = (index + 1) / trailDots.length;
+              dot.style.opacity = (0.08 + progress * 0.55).toFixed(2);
+              dot.setAttribute("r", (1.1 + progress * 1.2).toFixed(2));
+            });
+          }
+
+          function stepForward() {
+            angle += (Math.random() - 0.5) * 1.1;
+            let nextX = x + Math.cos(angle) * step;
+            let nextY = y + Math.sin(angle) * step;
+
+            if (nextX < padding || nextX > width - padding || nextY < padding || nextY > height - padding) {
+              angle += Math.PI + (Math.random() - 0.5);
+              nextX = x + Math.cos(angle) * step;
+              nextY = y + Math.sin(angle) * step;
+            }
+
+            x = Math.max(padding, Math.min(width - padding, nextX));
+            y = Math.max(padding, Math.min(height - padding, nextY));
+            addDot(x, y, "random-walk-dot", "2.2");
+            while (dots.querySelectorAll(".random-walk-dot").length > maximumDots) {
+              dots.querySelector(".random-walk-dot").remove();
+            }
+            fadeTrail();
+            walker.setAttribute("cx", x.toFixed(1));
+            walker.setAttribute("cy", y.toFixed(1));
+          }
+
+          function start() {
+            window.clearInterval(timer);
+            dots.replaceChildren();
+            x = width / 2;
+            y = height / 2;
+            angle = Math.random() * Math.PI * 2;
+            walker = addDot(x, y, "random-walk-walker", "3.8");
+            timer = window.setInterval(stepForward, 120);
+          }
+
+          start();
+          document.addEventListener("visibilitychange", () => {
+            if (document.hidden) window.clearInterval(timer);
+            else start();
+          });
+        })();
+        </script>
         {{ with .Site.GetPage "_index.md" }}
             {{ .Content }}
         {{ end }}
