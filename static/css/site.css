@@ -5,3 +5,29 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
+
+.recommendation-details > summary {
+  cursor: pointer;
+}
+
+.recommendation-preview,
+.recommendation-expand {
+  display: block;
+}
+
+.recommendation-preview {
+  border-left: 0.2rem solid var(--fg4);
+  color: var(--fg3);
+  font-style: italic;
+  margin: 0.75rem 0 0.5rem;
+  padding-left: 1rem;
+}
+
+.recommendation-expand {
+  color: var(--blue);
+  font-size: 0.9em;
+}
+
+.recommendation-details[open] .recommendation-expand {
+  display: none;
+}

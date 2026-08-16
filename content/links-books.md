@@ -15,7 +15,11 @@ Coming soon.
 
 - <span class="recommendation-type">Essay</span> [Design and Research](https://paulgraham.com/desres.html) by Paul Graham
 - <details class="recommendation-details">
-  <summary><span class="recommendation-type">Quote</span><strong>Feynman’s letter on worthwhile problems and not being nameless to yourself</strong></summary>
+  <summary>
+    <span class="recommendation-type">Quote</span><strong>Feynman’s letter on worthwhile problems and not being nameless to yourself</strong>
+    <span class="recommendation-preview">“You say you are a nameless man. You are not to your wife and to your child. You will not long remain so to your immediate colleagues if you can answer their simple questions when they come into your office. You are not nameless to me. Do not remain nameless to yourself – it is too sad a way to be.”</span>
+    <span class="recommendation-expand">Read the full letter →</span>
+  </summary>
 
   > Dear Koichi,
   >
