@@ -17,9 +17,11 @@ An e-ink notebook and reader. I’ll add a photo and more notes about how I use 
 
 ### Nothing Phone 3a Lite
 
+![Back of a Nothing Phone (3a) Lite](/images/nothing-phone-3a-lite-back.jpg)
+
 I do not like spending much money on phones: I am always a little worried about breaking them. But I really love this one’s design. The screen is also wonderfully responsive to touch.
 
-> *A back-view photo of the phone will go here.*
+*Image: [Nothing Phone (3a) Lite](https://intl.nothing.tech/products/phone-3a-lite).*
 
 ## Software
 
