@@ -6,12 +6,11 @@
   letter-spacing: 0.08em;
 }
 
-.recommendation-details > summary {
-  cursor: pointer;
+.recommendation-entry {
+  clear: both;
 }
 
-.recommendation-preview,
-.recommendation-expand {
+.recommendation-entry > strong {
   display: block;
 }
 
@@ -23,11 +22,8 @@
   padding-left: 1rem;
 }
 
-.recommendation-expand {
+.recommendation-details > summary {
   color: var(--blue);
+  cursor: pointer;
   font-size: 0.9em;
-}
-
-.recommendation-details[open] .recommendation-expand {
-  display: none;
 }
