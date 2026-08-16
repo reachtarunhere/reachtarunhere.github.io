@@ -7,7 +7,8 @@ A curated collection of links, essays, and books that I think are especially wor
 
 ## Machine Learning
 
-Coming soon.
+- <span class="recommendation-type">Book</span> *Data Science from Scratch* by Joel Grus
+- <span class="recommendation-type">Book</span> *[Build a Large Language Model (From Scratch)](https://www.manning.com/books/build-a-large-language-model-from-scratch)* by Sebastian Raschka — especially helpful preparation for interviewing for ML roles at an LLM lab.
 
 ---
 
@@ -53,7 +54,7 @@ I am not smart enough for—or interested in—doing things that I do not find s
 
 ## Programming
 
-Coming soon.
+- <span class="recommendation-type">Book</span> *[The Little Schemer](https://mitpress.mit.edu/9780262560993/the-little-schemer/)* by Daniel P. Friedman and Matthias Felleisen — the book that made recursion feel natural to me.
 
 ---
 
