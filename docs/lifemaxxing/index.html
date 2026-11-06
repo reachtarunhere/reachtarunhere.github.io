@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Lifemaxxing</title>
+  <style>
+    :root { --cream: #f6f2e9; --paper: #fffcf6; --ink: #293a32; --muted: #596359; --sage: #e7ecdf; --line: #c9d1c1; --clay: #914832; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.6; }
+    main { width: min(100% - 48px, 720px); margin: 52px auto 32px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: var(--clay); font-size: .75rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 650; }
+    .seed { width: 12px; height: 20px; border-radius: 100% 0 100% 0; background: var(--clay); transform: rotate(-20deg); }
+    h1, h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -.035em; line-height: 1.2; text-wrap: pretty; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); max-width: 590px; margin: 18px 0 14px; }
+    .intro { max-width: 550px; color: var(--muted); margin: 0 0 30px; }
+    .card { background: var(--paper); border: 1px solid var(--line); border-radius: 24px; padding: 30px; box-shadow: 0 8px 32px #293a3205; }
+    .postcard { margin: 0 0 24px; }
+    .scene { aspect-ratio: 16 / 9; background: var(--sage); border-radius: 16px; overflow: hidden; }
+    #scene-image { display: block; width: 100%; height: 100%; object-fit: cover; }
+    #scene-image[hidden] { display: none; }
+    #scene-caption { margin-top: 9px; color: var(--muted); font: italic .85rem/1.5 Georgia, "Times New Roman", serif; }
+    footer a { display: inline-block; color: var(--clay); padding: 12px; text-underline-offset: 3px; }
+    #step-label { color: var(--clay); font-size: .75rem; text-transform: uppercase; letter-spacing: .13em; margin: 0 0 12px; font-weight: 650; }
+    h2 { font-size: clamp(1.65rem, 4vw, 2.1rem); margin: 0 0 14px; }
+    #description { color: var(--muted); margin: 0 0 24px; white-space: pre-line; }
+    #choices { display: grid; gap: 10px; }
+    button { font: inherit; color: inherit; cursor: pointer; min-height: 48px; touch-action: manipulation; }
+    .choice { width: 100%; text-align: left; background: transparent; border: 1px solid var(--line); border-radius: 13px; padding: 14px 18px; transition: background-color .15s, border-color .15s; overflow-wrap: anywhere; }
+    .choice:hover { background: var(--sage); border-color: #8b9d87; }
+    .choice:active { background: #dbe4d2; }
+    .choice-title { display: block; font-weight: 600; line-height: 1.4; }
+    .choice-detail { display: block; color: var(--muted); font-size: .9rem; line-height: 1.5; margin-top: 5px; }
+    nav { display: flex; justify-content: space-between; gap: 12px; border-top: 1px solid var(--line); padding-top: 16px; margin-top: 24px; }
+    .quiet { background: transparent; border: 0; border-radius: 8px; padding: 10px 12px; color: var(--clay); }
+    .quiet:hover:not(:disabled) { background: #f1e7db; }
+    button:disabled { opacity: .5; cursor: default; }
+    :focus-visible { outline: 3px solid var(--clay); outline-offset: 4px; }
+    h2:focus { outline: 2px solid var(--clay); outline-offset: 6px; border-radius: 2px; }
+    footer { padding: 22px 6px 0; color: var(--muted); font-size: .8rem; text-align: center; }
+    noscript p { padding: 16px; border: 1px solid var(--clay); border-radius: 12px; }
+    @media (max-width: 480px) {
+      main { width: calc(100% - 28px); margin-top: 28px; }
+      .card { padding: 22px 18px; border-radius: 19px; }
+      .intro { margin-bottom: 24px; }
+      .choice { padding: 13px 14px; }
+      .scene { aspect-ratio: 5 / 2; border-radius: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow"><span class="seed" aria-hidden="true"></span> A little room for living</div>
+      <h1>Lifemaxxing</h1>
+      <p class="intro">What might feel good from here? One small choice is enough.</p>
+    </header>
+    <section class="card" aria-labelledby="step-title">
+      <figure class="postcard">
+        <div class="scene">
+          <img id="scene-image" src="lifemaxxing-photos/green-path.jpg" alt="A quiet walking path between leafy green trees." width="1200" height="675" loading="eager" decoding="async">
+        </div>
+        <figcaption id="scene-caption">A little air. No destination needed.</figcaption>
+      </figure>
+      <p id="step-label">Check in</p>
+      <h2 id="step-title" tabindex="-1" aria-describedby="description">How does being you feel right now?</h2>
+      <p id="description">Choose what feels closest. It does not need to be exact.</p>
+      <noscript><p>This little guide needs JavaScript enabled, but never needs the internet. For now, perhaps some tea on the balcony, a short walk, or quiet company?</p></noscript>
+      <div id="choices"></div>
+      <nav aria-label="Check-in navigation">
+        <button type="button" class="quiet" id="back" disabled>← Back</button>
+        <button type="button" class="quiet" id="reset">Start again</button>
+      </nav>
+    </section>
+    <footer>Only here, only now. Nothing is saved or tracked.<br><a href="lifemaxxing-photos/CREDITS.md">Photo credits</a></footer>
+  </main>
+  <script>
+    'use strict';
+    // Each cue opens a small set of choices, never the whole catalogue.
+    const feelings = [
+      { id: 'physical', label: 'Physically a little off', detail: 'Depleted, sluggish, stiff, tired, or in need of a refresh.' },
+      { id: 'weighed', label: 'Weighed down', detail: 'Something unfinished, a worry, or a space that is bothering me.' },
+      { id: 'flat', label: 'Flat, bored, or in a daze', detail: 'I could use a little texture or a change of scene.' },
+      { id: 'lonely', label: 'Disconnected or lonely', detail: 'I might like some company or a little closeness.' },
+      { id: 'full', label: 'Mentally full; I’ve had enough', detail: 'Less input, a different world, or somewhere quiet.' },
+      { id: 'good', label: 'Feeling good, with some energy', detail: 'There might be something I would enjoy doing.' },
+      { id: 'carry', label: 'I’m enjoying this; carry on', detail: 'Nothing needs changing.' },
+      { id: 'unsure', label: 'I’m not sure', detail: 'Show me a few ordinary, inviting scenes.' }
+    ];
+    const cues = {
+      physical: [
+        { id: 'depleted', label: 'Headache or feeling depleted', prompt: 'Have I had enough water in the last few hours? When did I last eat?', activities: ['water', 'yoghurt', 'meal'] },
+        { id: 'sluggish', label: 'Heavy or sluggish', prompt: 'Have I been sitting inside all day? Would moving a bit feel good?', activities: ['walk', 'chinups', 'gym'] },
+        { id: 'stiff', label: 'A bit stiff', prompt: 'Have I been in the same position for ages?', activities: ['stretch'] },
+        { id: 'tired', label: 'Properly tired', prompt: 'Have I had enough sleep, or a long stretch of doing things?', activities: ['nap', 'rest'] },
+        { id: 'scruffy', label: 'Scruffy; not quite comfortable in myself', prompt: 'Would a shower or shave feel nicer?', activities: ['shower', 'shave', 'clothes'] }
+      ],
+      weighed: [
+        { id: 'unfinished', label: 'An unfinished thing keeps tugging at me', prompt: 'What keeps coming back to mind? What would make it feel lighter?', activities: ['firststep', 'helper', 'park'] },
+        { id: 'worried', label: 'I’m worried about how things will get done', prompt: 'Is the next step clear, or is it all floating in my head?', activities: ['plan', 'dump'] },
+        { id: 'surroundings', label: 'My surroundings are annoying me', prompt: 'Would clearing my desk make being here more pleasant?', activities: ['tidy'] }
+      ],
+      flat: [
+        { id: 'routine', label: 'I could use a change of scene', prompt: 'Have I been in the same room or routine all day?', activities: ['walk', 'balcony', 'scene'] },
+        { id: 'interesting', label: 'I miss being interested in something', prompt: 'What was the last interesting thing I did that was not work?', activities: ['tinker', 'learn', 'taleb'] },
+        { id: 'story', label: 'I want today to have a little story', prompt: 'Would going somewhere give today a story?', activities: ['event', 'picnic', 'photo'] },
+        { id: 'small', label: 'A small, hands-on thing sounds nice', prompt: 'Would a small physical action help me get going?', activities: ['plants', 'tidy', 'tea'] }
+      ],
+      lonely: [
+        { id: 'wife', label: 'I’d like some closeness with my wife', prompt: 'Have we had undistracted time together, my wife and I, today?', activities: ['watchwife', 'chatwife', 'walkwife'] },
+        { id: 'share', label: 'I want to hear a familiar voice or share something', prompt: 'Who would be nice to hear from? Is there anything I’d like to share?', activities: ['family', 'friend'] },
+        { id: 'friends', label: 'I miss having fun with friends', prompt: 'When did I last have fun with friends? Could someone join a walk or meal?', activities: ['invite'] },
+        { id: 'future', label: 'Something to look forward to would feel good', prompt: 'Would a future meetup or hike feel good?', activities: ['meetup', 'hikeplan'] }
+      ],
+      full: [
+        { id: 'screens', label: 'I’ve taken in a lot', prompt: 'Have I been working, on screens, or taking in information for hours?', activities: ['balcony', 'rest', 'temple'] },
+        { id: 'world', label: 'I’d like to step into a different world', prompt: 'Would a different world be pleasant for a while?', activities: ['novel', 'film'] },
+        { id: 'quietcompany', label: 'Quiet company sounds right', prompt: 'Would company without much talk feel nice?', activities: ['watchwife'] },
+        { id: 'warmth', label: 'I could use some warmth or humour', prompt: 'Would a little warmth or humour feel good?', activities: ['wholesome', 'comedy'] }
+      ],
+      good: [
+        { id: 'idea', label: 'An idea is calling to me', prompt: 'Is there an idea I’d like to play with?', activities: ['tinker', 'learn'] },
+        { id: 'body', label: 'I’d enjoy using my body', prompt: 'Would using my body feel satisfying right now?', activities: ['gym', 'lift', 'hike'] },
+        { id: 'special', label: 'I’d like to make today a little special', prompt: 'What would make today feel a little special?', activities: ['cook', 'picnic', 'event'] },
+        { id: 'progress', label: 'Making progress genuinely sounds enjoyable', prompt: 'Would some enjoyable progress feel good?', activities: ['work'] }
+      ]
+    };
+    // label, a concrete invitation, and the kind of optional finishing touch.
+    const activities = {
+      water: ['Drink some water', 'A glass within reach. No need to make more of it.', 'tea'],
+      yoghurt: ['Have some yoghurt', 'An easy snack, if you fancy it.', 'meal'],
+      meal: ['Make an easy meal', 'Something familiar and low-effort sounds fine.', 'meal'],
+      walk: ['Take a short walk', 'Step outside and see what you feel like from there.', 'walk'],
+      chinups: ['Do a few chinups', 'Only if that kind of movement feels welcome; no target.', 'move'],
+      gym: ['Go to the gym', 'Choose the movement you actually feel like doing.', 'move'],
+      stretch: ['Stretch gently', 'A comfortable stretch, without pushing through discomfort.', 'rest'],
+      nap: ['Take a nap', 'Let yourself lie down; this is not another task.', 'rest'],
+      rest: ['Have a quiet rest', 'Sit or lie down with nothing to catch up on.', 'rest'],
+      shower: ['Have a shower', 'A simple refresh, if it sounds nice.', 'rest'],
+      shave: ['Have a shave', 'A little care for yourself, not a makeover.', 'rest'],
+      clothes: ['Put on fresh clothes', 'Something clean and comfortable.', 'rest'],
+      work: ['Work on the thing on my mind', 'Pick the actual task. A small dent is allowed to be enough.', 'work'],
+      firststep: ['Do only the first ten minutes', 'Open it and do the part you already know. Stopping after ten minutes counts.', 'chore'],
+      helper: ['Ask for help or hand part of it off', 'Ask one question, share the load, or let someone else take a piece.', 'chore'],
+      park: ['Let it go for now', 'Pick a time to come back to it, write that down, and stop carrying it today.', 'park'],
+      plan: ['Make a brief work plan', 'Put the next few steps on paper so you do not have to hold them all.', 'work'],
+      dump: ['Do a brain dump', 'Write down what is floating around. It need not be tidy.', 'work'],
+      tidy: ['Clear a little space', 'Just the desk or one patch that would make being here nicer.', 'work'],
+      balcony: ['Sit on the balcony', 'Some tea, fresh air, and no laptop. Nothing to produce.', 'tea'],
+      scene: ['Go somewhere different', 'Another room, a nearby café, or a small trip somewhere new.', 'walk'],
+      tinker: ['Tinker with an idea', 'An Emacs idea, a little experiment, or something just for play.', 'learn'],
+      learn: ['Learn something interesting', 'Taste a paper, course, or book. No outcome needed.', 'learn'],
+      taleb: ['Read some Taleb', 'An idea to engage with, away from work.', 'read'],
+      event: ['Look for a local event', 'A play, a museum, or something nearby that catches your eye.', 'walk'],
+      picnic: ['Have a picnic', 'Simple food and somewhere pleasant; elaborate preparation is optional.', 'meal'],
+      photo: ['Take a photo', 'Notice the light or some ordinary beauty already around you.', 'photo'],
+      plants: ['Water the plants', 'Touch the soil, check what needs water, enjoy something living.', 'ritual'],
+      tea: ['Make some tea', 'The kettle and a cup. That can be the whole activity.', 'tea'],
+      watchwife: ['Watch something with my wife', 'Be together without needing a big conversation.', 'watch'],
+      chatwife: ['Have a chat with my wife', 'Put distractions aside and hear how her day has been.', 'company'],
+      walkwife: ['Take a walk with my wife', 'A little shared air and undistracted time.', 'walk'],
+      family: ['Call someone in the family', 'A familiar voice; perhaps share one ordinary thing from today.', 'company'],
+      friend: ['Message a friend', 'Share a photo, a thought, or a simple “thinking of you”.', 'company'],
+      invite: ['Invite a friend for a walk or meal', 'See whether someone fancies joining you. No perfect invitation needed.', 'company'],
+      meetup: ['Arrange a future meetup', 'Future joy, rather than company now: suggest a day and something simple.', 'future'],
+      hikeplan: ['Arrange a future hike', 'Future joy, rather than company now: ask who would like a day outside.', 'future'],
+      temple: ['Visit the temple', 'A peaceful change of scene; going alone is fine.', 'rest'],
+      novel: ['Read a novel', 'A few pages in a different world.', 'read'],
+      film: ['Watch a film', 'Something you would actually enjoy, rather than more browsing.', 'watch'],
+      wholesome: ['Look at saved wholesome posts', 'A little warmth. Gently stop if scrolling is no longer pleasant.', 'watch'],
+      comedy: ['Watch a favourite comedy', 'Something familiar that makes you laugh.', 'watch'],
+      lift: ['Have a lifting session', 'Enjoy using your body, without needing to prove anything.', 'move'],
+      hike: ['Go for a hike', 'Choose a route that suits your energy and the day.', 'walk'],
+      cook: ['Cook together', 'Something you and your wife would enjoy making and eating.', 'meal'],
+      unsuretea: ['Tea on the balcony', 'A favourite cup, some air, no laptop.', 'tea'],
+      unsurebook: ['A shower, fresh clothes, and a novel', 'A comfortable little scene; start with whichever part appeals.', 'read'],
+      unsurewalk: ['A short walk nearby', 'Step out, look around, come back whenever you like.', 'walk'],
+      unsurecompany: ['Some quiet company', 'Sit with your wife or someone familiar. Talking is optional.', 'company']
+    };
+    const touches = {
+      tea: ['Take your cup onto the balcony or to a window.', 'Share a cup with your wife, if she fancies it.', 'Use your favourite cup and pause for the first sip.'],
+      meal: ['Eat at a cleared table, or take your food outside.', 'Eat together with your wife or a friend.', 'Put on some music you love while you eat.'],
+      walk: ['Try a greener route, or wander toward a spot for tea.', 'Ask your wife or a friend to join, if you like.', 'Notice one lovely ordinary thing along the way.'],
+      move: ['Choose the space or route you most enjoy moving in.', 'Go with a friend, if company would make it nicer.', 'Put on a favourite soundtrack, if it suits the movement.'],
+      rest: ['Find softer light and a comfortable place to settle.', 'Rest near someone you feel comfortable with; no talking needed.', 'Comfortable clothes, softer light, and the phone away.'],
+      work: ['Clear just enough desk space to enjoy being there.', 'Ask someone to sit nearby, quietly doing their own thing.', 'Have a cup you like, and an enjoyable break afterward.'],
+      learn: ['Find a cosy spot where you enjoy getting curious.', 'Share the idea with someone who might enjoy it.', 'Put on your favourite soundtrack, if it helps you enjoy this.'],
+      read: ['Use a reading lamp and a comfortable spot.', 'Read alongside your wife, each in your own world.', 'Settle in with a favourite cup and leave your phone aside.'],
+      photo: ['Go where the light is lovely, even just a window.', 'Share the little thing you notice with a friend.', 'Look for ordinary beauty before reaching for the camera.'],
+      ritual: ['Spend a moment by a sunny window or on the balcony.', 'Invite someone to potter alongside you.', 'Notice the leaves and the soil; let it be unhurried.'],
+      watch: ['Choose a comfortable spot with softer light.', 'Watch with your wife or someone whose company feels easy.', 'Put your phone aside and bring a favourite snack.'],
+      company: ['Sit somewhere pleasant, or suggest a nearby walk.', 'Keep it simple with someone whose company feels easy.', 'Make a cup of tea and put other distractions aside.'],
+      chore: ['Pick one piece: gather the papers, fill one section, or send one email.', 'Ask your wife or a friend to sit nearby, or do it together on a call.', 'Put on music or a podcast, make tea, and plan a small treat afterward.'],
+      park: ['Write it on a note and put the papers out of sight.', 'Tell your wife when you will do it, so you can both stop thinking about it.', 'Close the tab or folder as a small goodbye for today.'],
+      future: ['Suggest a greener route or a favourite place to eat.', 'Invite someone you would genuinely like to spend time with.', 'Suggest a shared tea or meal as part of the plan.']
+    };
+    const photos = {
+      path: [
+        { src: 'lifemaxxing-photos/green-path.jpg', alt: 'A quiet walking path between leafy green trees.', caption: 'A little air. No destination needed.' },
+        { src: 'lifemaxxing-photos/meadow-track.jpg', alt: 'A dirt track running through a lush green field.', caption: 'See where the path goes.' },
+        { src: 'lifemaxxing-photos/gentle-hills.jpg', alt: 'A simple walking trail winding up a grassy hill.', caption: 'Outside, at your own pace.' }
+      ],
+      hills: [
+        { src: 'lifemaxxing-photos/gentle-hills.jpg', alt: 'A simple walking trail winding up a grassy hill.', caption: 'A day outside, at your own pace.' },
+        { src: 'lifemaxxing-photos/meadow-track.jpg', alt: 'A dirt track running through a lush green field.', caption: 'Some open space for the afternoon.' },
+        { src: 'lifemaxxing-photos/green-path.jpg', alt: 'A quiet walking path between leafy green trees.', caption: 'A greener way to go.' }
+      ],
+      tea: [
+        { src: 'lifemaxxing-photos/window-tea.jpg', alt: 'A cup on a windowsill, with mountains beyond the window.', caption: 'A cup, a window, a moment to yourself.' },
+        { src: 'lifemaxxing-photos/garden-teapot.jpg', alt: 'A white ceramic mug beside a teapot on a wooden garden table.', caption: 'Let the kettle do its thing.' },
+        { src: 'lifemaxxing-photos/cafe-wood.jpg', alt: 'Wooden tables and chairs inside a cafe.', caption: 'A different seat for a while.' },
+        { src: 'lifemaxxing-photos/balcony-table.jpg', alt: 'Balcony seating and a table overlooking the city.', caption: 'A little air with your cup.' }
+      ],
+      book: [
+        { src: 'lifemaxxing-photos/open-book.jpg', alt: 'An open book resting on softly rumpled linen.', caption: 'A few pages. The rest can wait.' },
+        { src: 'lifemaxxing-photos/books-and-lamp.jpg', alt: 'Books beside a table lamp in a warm neutral room.', caption: 'Put the lamp on. Pick a page.' },
+        { src: 'lifemaxxing-photos/reading-shelf.jpg', alt: 'A wooden bookshelf holding books and a lamp.', caption: 'Something to get curious about.' },
+        { src: 'lifemaxxing-photos/book-on-table.jpg', alt: 'An open book resting on a table.', caption: 'Another world, a few pages away.' }
+      ],
+      picnic: [
+        { src: 'lifemaxxing-photos/orchard-waffles.jpg', alt: 'Waffles and berries on a picnic blanket in a blooming orchard.', caption: 'Something simple, taken outside.' },
+        { src: 'lifemaxxing-photos/woodland-picnic.jpg', alt: 'An empty wooden picnic table among campground trees.', caption: 'Room for someone to join you.' },
+        { src: 'lifemaxxing-photos/strawberry-basket.jpg', alt: 'A green basket filled with ripe strawberries.', caption: 'Bring something you like to eat.' }
+      ],
+      plants: [
+        { src: 'lifemaxxing-photos/watering-plants.jpg', alt: 'A watering can watering green strawberry plants.', caption: 'A little water. Something living.' },
+        { src: 'lifemaxxing-photos/rainy-window-plants.jpg', alt: 'Two potted plants on a windowsill behind rain-speckled glass.', caption: 'See how the leaves are doing.' },
+        { src: 'lifemaxxing-photos/plant-books-shelf.jpg', alt: 'Houseplants and books arranged on a shelf.', caption: 'A small corner that feels like home.' }
+      ],
+      sofa: [
+        { src: 'lifemaxxing-photos/cosy-sofa.jpg', alt: 'A cosy sofa with a soft blanket and a pillow.', caption: 'A soft place to land. Talking is optional.' },
+        { src: 'lifemaxxing-photos/striped-bed-light.jpg', alt: 'Rumpled striped bedding crossed by slatted window light.', caption: 'You can just lie down.' },
+        { src: 'lifemaxxing-photos/sheer-window-light.jpg', alt: 'Daylight filtering through sheer window curtains.', caption: 'Let the room be quiet for a bit.' }
+      ],
+      table: [
+        { src: 'lifemaxxing-photos/clear-table.jpg', alt: 'A ceramic cup and saucer on a clear wooden table.', caption: 'Just enough room for the next small thing.' },
+        { src: 'lifemaxxing-photos/folded-towels.jpg', alt: 'Folded towels arranged beside potted plants.', caption: 'One little pile, then done.' },
+        { src: 'lifemaxxing-photos/table-two-chairs.jpg', alt: 'A wooden table with two chairs and a vase of flowers.', caption: 'Clear a little room to sit.' }
+      ],
+      city: [
+        { src: 'lifemaxxing-photos/hampstead-lane.jpg', alt: 'A narrow Hampstead street bordered by buildings and a black fence.', caption: 'Take a turn you usually pass.' },
+        { src: 'lifemaxxing-photos/balcony-lined-street.jpg', alt: 'A narrow street between buildings with balconies.', caption: 'Somewhere nearby, seen differently.' },
+        { src: 'lifemaxxing-photos/market-strawberries.jpg', alt: 'Baskets of strawberries displayed at a farmers market.', caption: 'See what is happening nearby.' }
+      ],
+      temple: [
+        { src: 'lifemaxxing-photos/pagoda-lotus-pond.jpg', alt: 'A lotus pond and Buddhist statue before a Vietnamese pagoda.', caption: 'Somewhere quiet to spend a little time.' },
+        { src: 'lifemaxxing-photos/kyoto-orange-gates.jpg', alt: 'A traditional Kyoto temple courtyard with orange gates.', caption: 'Step away from the usual noise.' },
+        { src: 'lifemaxxing-photos/buddha-courtyard.jpg', alt: 'A seated Buddha statue within a Sri Lankan temple courtyard.', caption: 'No conversation needed.' }
+      ],
+      food: [
+        { src: 'lifemaxxing-photos/mango-prep.jpg', alt: 'Mango being diced on a cutting board for pico de gallo.', caption: 'Make something you would like to eat.' },
+        { src: 'lifemaxxing-photos/jalapeno-prep.jpg', alt: 'Diced jalapeño and a kitchen knife on a cutting board.', caption: 'Chop a little. Put some music on.' },
+        { src: 'lifemaxxing-photos/sancocho-bowl.jpg', alt: 'A bowl of sancocho soup ready to eat.', caption: 'Something warm and familiar.' }
+      ],
+      sky: [
+        { src: 'lifemaxxing-photos/sunset-cloud.jpg', alt: 'A white and grey cloud illuminated by the setting sun.', caption: 'Notice the light already here.' },
+        { src: 'lifemaxxing-photos/pink-cumulus.jpg', alt: 'A pink and white cumulus cloud against a darkening sky.', caption: 'Look up for a moment.' },
+        { src: 'lifemaxxing-photos/delhi-golden-clouds.jpg', alt: 'Cumulus clouds over New Delhi during golden hour.', caption: 'An ordinary evening worth noticing.' }
+      ]
+    };
+    const feelingPhotos = { physical: 'tea', weighed: 'table', flat: 'plants', lonely: 'sofa', full: 'book', good: 'hills', unsure: 'tea', carry: 'path' };
+    const cuePhotos = { depleted: 'tea', sluggish: 'path', stiff: 'sofa', tired: 'sofa', routine: 'path', interesting: 'book', story: 'picnic', small: 'plants', future: 'hills', screens: 'tea', world: 'book', quietcompany: 'sofa', warmth: 'sofa', body: 'hills', special: 'picnic' };
+    const activityPhotos = {
+      water: 'tea', balcony: 'tea', tea: 'tea', unsuretea: 'tea',
+      walk: 'path', walkwife: 'path', unsurewalk: 'path', scene: 'city', event: 'city', meetup: 'city', photo: 'sky', temple: 'temple',
+      novel: 'book', taleb: 'book', learn: 'book', unsurebook: 'book',
+      picnic: 'picnic', plants: 'plants', hike: 'hills', hikeplan: 'hills',
+      rest: 'sofa', nap: 'sofa', watchwife: 'sofa', chatwife: 'sofa', film: 'sofa', comedy: 'sofa', wholesome: 'sofa', unsurecompany: 'sofa',
+      firststep: 'table', helper: 'table', park: 'table', plan: 'table', dump: 'table', tidy: 'table', work: 'table', yoghurt: 'food', meal: 'food', cook: 'food'
+    };
+    let path = [];
+    let sceneKey;
+    let sceneImage;
+    const checkIn = {
+      view() {
+        const [feeling, cue, activity, touch] = path;
+        const key = path.join('/');
+        if (sceneKey !== key) {
+          const pool = photos[activityPhotos[feeling === 'unsure' ? cue : activity] || cuePhotos[cue] || feelingPhotos[feeling] || 'path'];
+          const candidates = pool.filter(photo => photo.src !== sceneImage?.src);
+          sceneImage = candidates[Math.floor(Math.random() * candidates.length)];
+          sceneKey = key;
+        }
+        const image = sceneImage;
+        if (!feeling) return { image, stage: 'feeling', title: 'How does being you feel right now?', description: 'Choose what feels closest. It does not need to be exact.', choices: feelings };
+        if (feeling === 'carry') return { image, stage: 'done', title: 'For now, keep enjoying this.', description: 'You can carry on just as you are. Nothing needs improving, and you do not have to choose something new.', choices: [] };
+        if (feeling !== 'unsure' && !cue) return { image, stage: 'cue', title: 'What is the little cue underneath?', description: 'Pick the thought that sounds familiar, not the one you think you ought to pick.', choices: cues[feeling] };
+        const selectedCue = feeling === 'unsure' ? null : cues[feeling].find(c => c.id === cue);
+        const activityId = feeling === 'unsure' ? cue : activity;
+        const touchId = feeling === 'unsure' ? activity : touch;
+        const selected = activities[activityId];
+        if (!selected) {
+          const ids = selectedCue ? selectedCue.activities : ['unsuretea', 'unsurebook', 'unsurewalk', 'unsurecompany'];
+          return { image, stage: 'activity', title: selectedCue ? selectedCue.prompt : 'Does one of these scenes sound inviting?', description: feeling === 'unsure' ? 'No need for a perfect match. A small try can help you discover your appetite.' : feeling === 'physical' ? 'These are everyday options, not cures or prescriptions. Choose only what feels comfortable; rest is allowed too.' : selectedCue.id === 'future' ? 'This is about future joy, not company now. If you want someone beside you today, go back and choose a call or invitation.' : 'What sounds welcome? A small version counts. You can always go back and try another direction.', choices: ids.map(id => ({ id, label: activities[id][0], detail: activities[id][1] })) };
+        }
+        const examples = touches[selected[2]];
+        const chore = selected[2] === 'chore';
+        const park = selected[2] === 'park';
+        const labels = chore
+          ? ['Make it smaller', 'Do it alongside someone', 'Pair it with something nice', 'Just get it done']
+          : park ? ['Write it down', 'Tell someone', 'A small goodbye', 'Just let it go']
+          : ['Somewhere lovely', 'With someone', 'A small ritual', 'Just as it is'];
+        const options = [
+          { id: 'place', label: labels[0], detail: examples[0] },
+          { id: 'company', label: labels[1], detail: examples[1] },
+          { id: 'ritual', label: labels[2], detail: examples[2] },
+          { id: 'plain', label: labels[3], detail: chore ? 'No extra setup. Do it and be done.' : park ? 'Nothing else needed. Deciding is enough.' : 'No extra preparation. This is already enough.' }
+        ];
+        if (!touchId) return { image, stage: 'touch', title: chore ? 'What would make this less painful?' : park ? 'How could I set it down for now?' : 'Would I enjoy this more somewhere else, with someone, or with a small ritual?', description: 'You’ve chosen: ' + selected[0] + '.\nOnly add a touch if it makes this nicer, not harder.', choices: options };
+        const extra = (touchId === 'plain' ? '' : options.find(c => c.id === touchId).detail + '\n\n')
+          + (activityId === 'park' ? 'This time is allowed to be yours. The task will still be there later.\n\n' : '');
+        return { image, stage: 'done', title: 'For now, ' + selected[0][0].toLowerCase() + selected[0].slice(1) + '.', description: extra + 'You can try it for a few minutes. You do not need to fill two hours.\n\nYou can put this page down and begin, or change your mind. Either is fine.', choices: [] };
+      },
+      choose(id) {
+        if (!this.view().choices.some(choice => choice.id === id)) return;
+        path.push(id);
+        this.render();
+      },
+      back() { path.pop(); this.render(); },
+      reset() { path = []; sceneKey = undefined; this.render(); },
+      render() {
+        const view = this.view();
+        const image = document.getElementById('scene-image');
+        image.alt = view.image.alt;
+        // A failed image stays hidden until a different scene is requested.
+        if (image.getAttribute('src') !== view.image.src) {
+          image.hidden = false;
+          image.src = view.image.src;
+        }
+        document.getElementById('scene-caption').textContent = view.image.caption;
+        document.getElementById('step-label').textContent = { feeling: 'Check in', cue: 'A little closer', activity: 'Something to try', touch: 'An optional touch', done: 'Enough for now' }[view.stage];
+        const title = document.getElementById('step-title');
+        title.textContent = view.title;
+        document.getElementById('description').textContent = view.description;
+        const choices = document.getElementById('choices');
+        choices.replaceChildren();
+        for (const choice of view.choices) {
+          const button = document.createElement('button');
+          button.type = 'button'; button.className = 'choice';
+          const label = document.createElement('span');
+          label.className = 'choice-title'; label.textContent = choice.label;
+          button.append(label);
+          if (choice.detail) {
+            const detail = document.createElement('span');
+            detail.className = 'choice-detail'; detail.textContent = choice.detail;
+            button.append(detail);
+          }
+          button.addEventListener('click', () => this.choose(choice.id));
+          choices.append(button);
+        }
+        document.getElementById('back').disabled = path.length === 0;
+        title.focus();
+      }
+    };
+    document.getElementById('back').addEventListener('click', () => checkIn.back());
+    document.getElementById('reset').addEventListener('click', () => checkIn.reset());
+    document.getElementById('scene-image').addEventListener('error', () => { document.getElementById('scene-image').hidden = true; });
+    checkIn.render();
+  </script>
+</body>
+</html>
