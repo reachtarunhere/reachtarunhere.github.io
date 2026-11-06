@@ -82,7 +82,7 @@
     const feelings = [
       { id: 'physical', label: 'Physically a little off', detail: 'Depleted, sluggish, stiff, tired, or in need of a refresh.' },
       { id: 'weighed', label: 'Weighed down', detail: 'Something unfinished, a worry, or a space that is bothering me.' },
-      { id: 'flat', label: 'Flat, bored, or in a daze', detail: 'I could use a little texture or a change of scene.' },
+      { id: 'flat', label: 'Flat, bored, or in a daze', detail: 'A change of scene, or getting absorbed in something, might feel good.' },
       { id: 'lonely', label: 'Disconnected or lonely', detail: 'I might like some company or a little closeness.' },
       { id: 'full', label: 'Mentally full; I’ve had enough', detail: 'Less input, a different world, or somewhere quiet.' },
       { id: 'good', label: 'Feeling good, with some energy', detail: 'There might be something I would enjoy doing.' },
@@ -99,12 +99,12 @@
       ],
       weighed: [
         { id: 'unfinished', label: 'An unfinished thing keeps tugging at me', prompt: 'What keeps coming back to mind? What would make it feel lighter?', activities: ['firststep', 'helper', 'park'] },
-        { id: 'worried', label: 'I’m worried about how things will get done', prompt: 'Is the next step clear, or is it all floating in my head?', activities: ['plan', 'dump'] },
+        { id: 'worried', label: 'I’m worried about how things will get done', prompt: 'Would seeing the pieces on paper make this feel lighter?', activities: ['plan', 'dump'] },
         { id: 'surroundings', label: 'My surroundings are annoying me', prompt: 'Would clearing my desk make being here more pleasant?', activities: ['tidy'] }
       ],
       flat: [
         { id: 'routine', label: 'I could use a change of scene', prompt: 'Have I been in the same room or routine all day?', activities: ['walk', 'balcony', 'scene'] },
-        { id: 'interesting', label: 'I miss being interested in something', prompt: 'What was the last interesting thing I did that was not work?', activities: ['tinker', 'learn', 'taleb'] },
+        { id: 'interesting', label: 'Maybe getting absorbed in something would feel good?', prompt: 'Is there something I’d enjoy getting into if I picked a starting point?', activities: ['learn', 'tinker', 'taleb', 'work', 'sessionplan'] },
         { id: 'story', label: 'I want today to have a little story', prompt: 'Would going somewhere give today a story?', activities: ['event', 'picnic', 'photo'] },
         { id: 'small', label: 'A small, hands-on thing sounds nice', prompt: 'Would a small physical action help me get going?', activities: ['plants', 'tidy', 'tea'] }
       ],
@@ -124,7 +124,8 @@
         { id: 'idea', label: 'An idea is calling to me', prompt: 'Is there an idea I’d like to play with?', activities: ['tinker', 'learn'] },
         { id: 'body', label: 'I’d enjoy using my body', prompt: 'Would using my body feel satisfying right now?', activities: ['gym', 'lift', 'hike'] },
         { id: 'special', label: 'I’d like to make today a little special', prompt: 'What would make today feel a little special?', activities: ['cook', 'picnic', 'event'] },
-        { id: 'progress', label: 'Making progress genuinely sounds enjoyable', prompt: 'Would some enjoyable progress feel good?', activities: ['work'] }
+        { id: 'progress', label: 'Would making something or getting into a task feel satisfying?', prompt: 'Would making something or getting into a task feel satisfying?', activities: ['work', 'tinker', 'learn', 'sessionplan'] },
+        { id: 'planning', label: 'What would I like to make progress on—or make room for this week?', prompt: 'What would I like to make progress on—or make room for this week?', activities: ['sessionplan', 'plan', 'meetup', 'hikeplan'] }
       ]
     };
     // label, a concrete invitation, and the kind of optional finishing touch.
@@ -141,17 +142,18 @@
       shower: ['Have a shower', 'A simple refresh, if it sounds nice.', 'rest'],
       shave: ['Have a shave', 'A little care for yourself, not a makeover.', 'rest'],
       clothes: ['Put on fresh clothes', 'Something clean and comfortable.', 'rest'],
-      work: ['Work on the thing on my mind', 'Pick the actual task. A small dent is allowed to be enough.', 'work'],
+      work: ['Work on something I’d enjoy making progress on', 'Choose something I’d enjoy making or getting absorbed in. Start with one inviting piece; no need to finish it all.', 'work'],
       firststep: ['Do only the first ten minutes', 'Open it and do the part you already know. Stopping after ten minutes counts.', 'chore'],
       helper: ['Ask for help or hand part of it off', 'Ask one question, share the load, or let someone else take a piece.', 'chore'],
       park: ['Let it go for now', 'Pick a time to come back to it, write that down, and stop carrying it today.', 'park'],
-      plan: ['Make a brief work plan', 'Put the next few steps on paper so you do not have to hold them all.', 'work'],
+      sessionplan: ['Plan a work session', 'What would I enjoy making progress on in this next stretch? Choose a starting point; the plan can change.', 'work'],
+      plan: ['Sketch a project or weekly plan', 'Choose what I’d like to move forward and make room for this week. Put the pieces on paper.', 'work'],
       dump: ['Do a brain dump', 'Write down what is floating around. It need not be tidy.', 'work'],
       tidy: ['Clear a little space', 'Just the desk or one patch that would make being here nicer.', 'work'],
       balcony: ['Sit on the balcony', 'Some tea, fresh air, and no laptop. Nothing to produce.', 'tea'],
       scene: ['Go somewhere different', 'Another room, a nearby café, or a small trip somewhere new.', 'walk'],
       tinker: ['Tinker with an idea', 'An Emacs idea, a little experiment, or something just for play.', 'learn'],
-      learn: ['Learn something interesting', 'Taste a paper, course, or book. No outcome needed.', 'learn'],
+      learn: ['Have a learning session', 'Follow a little curiosity and get absorbed in a subject. Taste a paper, course, or book, or settle into one; no outcome needed.', 'learn'],
       taleb: ['Read some Taleb', 'An idea to engage with, away from work.', 'read'],
       event: ['Look for a local event', 'A play, a museum, or something nearby that catches your eye.', 'walk'],
       picnic: ['Have a picnic', 'Simple food and somewhere pleasant; elaborate preparation is optional.', 'meal'],
@@ -268,7 +270,7 @@
       novel: 'book', taleb: 'book', learn: 'book', unsurebook: 'book',
       picnic: 'picnic', plants: 'plants', hike: 'hills', hikeplan: 'hills',
       rest: 'sofa', nap: 'sofa', watchwife: 'sofa', chatwife: 'sofa', film: 'sofa', comedy: 'sofa', wholesome: 'sofa', unsurecompany: 'sofa',
-      firststep: 'table', helper: 'table', park: 'table', plan: 'table', dump: 'table', tidy: 'table', work: 'table', yoghurt: 'food', meal: 'food', cook: 'food'
+      firststep: 'table', helper: 'table', park: 'table', plan: 'table', sessionplan: 'table', dump: 'table', tidy: 'table', work: 'table', yoghurt: 'food', meal: 'food', cook: 'food'
     };
     let path = [];
     let sceneKey;
