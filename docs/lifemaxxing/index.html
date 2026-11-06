@@ -120,6 +120,12 @@
         { id: 'quietcompany', label: 'Quiet company sounds right', prompt: 'Would company without much talk feel nice?', activities: ['watchwife'] },
         { id: 'warmth', label: 'I could use some warmth or humour', prompt: 'Would a little warmth or humour feel good?', activities: ['wholesome', 'comedy'] }
       ],
+      possibilities: [
+        { id: 'possibilitybody', label: 'Would using my body feel satisfying?', prompt: 'Would using my body feel satisfying?', activities: ['gym', 'walk', 'stretch'] },
+        { id: 'possibilityabsorption', label: 'Would getting absorbed in something feel good?', prompt: 'Would getting absorbed in something feel good?', activities: ['learn', 'tinker', 'work'] },
+        { id: 'possibilitycompany', label: 'Would some company make this nicer?', prompt: 'Would some company make this nicer?', activities: ['family', 'watchwife', 'invite'] },
+        { id: 'possibilityscene', label: 'Would a change of scene wake the day up?', prompt: 'Would a change of scene wake the day up?', activities: ['walk', 'balcony', 'scene'] }
+      ],
       good: [
         { id: 'idea', label: 'An idea is calling to me', prompt: 'Is there an idea I’d like to play with?', activities: ['tinker', 'learn'] },
         { id: 'body', label: 'I’d enjoy using my body', prompt: 'Would using my body feel satisfying right now?', activities: ['gym', 'lift', 'hike'] },
@@ -262,7 +268,7 @@
         { src: 'lifemaxxing-photos/delhi-golden-clouds.jpg', alt: 'Cumulus clouds over New Delhi during golden hour.', caption: 'An ordinary evening worth noticing.' }
       ]
     };
-    const feelingPhotos = { physical: 'tea', weighed: 'table', flat: 'plants', lonely: 'sofa', full: 'book', good: 'hills', unsure: 'tea', carry: 'path' };
+    const feelingPhotos = { possibilities: 'tea', physical: 'tea', weighed: 'table', flat: 'plants', lonely: 'sofa', full: 'book', good: 'hills', unsure: 'tea', carry: 'path' };
     const cuePhotos = { depleted: 'tea', sluggish: 'path', stiff: 'sofa', tired: 'sofa', routine: 'path', interesting: 'book', story: 'picnic', small: 'plants', future: 'hills', screens: 'tea', world: 'book', quietcompany: 'sofa', warmth: 'sofa', body: 'hills', special: 'picnic' };
     const activityPhotos = {
       water: 'tea', balcony: 'tea', tea: 'tea', unsuretea: 'tea',
@@ -272,12 +278,16 @@
       rest: 'sofa', nap: 'sofa', watchwife: 'sofa', chatwife: 'sofa', film: 'sofa', comedy: 'sofa', wholesome: 'sofa', unsurecompany: 'sofa',
       firststep: 'table', helper: 'table', park: 'table', plan: 'table', sessionplan: 'table', dump: 'table', tidy: 'table', work: 'table', yoghurt: 'food', meal: 'food', cook: 'food'
     };
+    const possibilitiesInvitation = { id: 'possibilities', label: 'Nothing quite fits? Bring some possibilities to mind' };
     let path = [];
     let sceneKey;
     let sceneImage;
     const checkIn = {
       view() {
-        const [feeling, cue, activity, touch] = path;
+        // Keep the entry path before this marker so Back returns to that exact step.
+        const possibilitiesIndex = path.indexOf('possibilities');
+        const [feeling, cue, activity, touch] = possibilitiesIndex < 0 ? path : path.slice(possibilitiesIndex);
+        const invitation = feeling === 'possibilities' ? undefined : possibilitiesInvitation;
         const key = path.join('/');
         if (sceneKey !== key) {
           const pool = photos[activityPhotos[feeling === 'unsure' ? cue : activity] || cuePhotos[cue] || feelingPhotos[feeling] || 'path'];
@@ -286,16 +296,17 @@
           sceneKey = key;
         }
         const image = sceneImage;
-        if (!feeling) return { image, stage: 'feeling', title: 'How does being you feel right now?', description: 'Choose what feels closest. It does not need to be exact.', choices: feelings };
+        if (!feeling) return { image, invitation, stage: 'feeling', title: 'How does being you feel right now?', description: 'Choose what feels closest. It does not need to be exact.', choices: feelings };
         if (feeling === 'carry') return { image, stage: 'done', title: 'For now, keep enjoying this.', description: 'You can carry on just as you are. Nothing needs improving, and you do not have to choose something new.', choices: [] };
-        if (feeling !== 'unsure' && !cue) return { image, stage: 'cue', title: 'What is the little cue underneath?', description: 'Pick the thought that sounds familiar, not the one you think you ought to pick.', choices: cues[feeling] };
+        if (feeling === 'possibilities' && !cue) return { image, stage: 'cue', title: 'Bring some possibilities to mind', description: 'You do not need to feel a particular way to try these. See if one sounds inviting.', choices: cues.possibilities };
+        if (feeling !== 'unsure' && !cue) return { image, invitation, stage: 'cue', title: 'What is the little cue underneath?', description: 'Pick the thought that sounds familiar, not the one you think you ought to pick.', choices: cues[feeling] };
         const selectedCue = feeling === 'unsure' ? null : cues[feeling].find(c => c.id === cue);
         const activityId = feeling === 'unsure' ? cue : activity;
         const touchId = feeling === 'unsure' ? activity : touch;
         const selected = activities[activityId];
         if (!selected) {
           const ids = selectedCue ? selectedCue.activities : ['unsuretea', 'unsurebook', 'unsurewalk', 'unsurecompany'];
-          return { image, stage: 'activity', title: selectedCue ? selectedCue.prompt : 'Does one of these scenes sound inviting?', description: feeling === 'unsure' ? 'No need for a perfect match. A small try can help you discover your appetite.' : feeling === 'physical' ? 'These are everyday options, not cures or prescriptions. Choose only what feels comfortable; rest is allowed too.' : selectedCue.id === 'future' ? 'This is about future joy, not company now. If you want someone beside you today, go back and choose a call or invitation.' : 'What sounds welcome? A small version counts. You can always go back and try another direction.', choices: ids.map(id => ({ id, label: activities[id][0], detail: activities[id][1] })) };
+          return { image, invitation, stage: 'activity', title: selectedCue ? selectedCue.prompt : 'Does one of these scenes sound inviting?', description: feeling === 'unsure' ? 'No need for a perfect match. A small try can help you discover your appetite.' : feeling === 'physical' ? 'These are everyday options, not cures or prescriptions. Choose only what feels comfortable; rest is allowed too.' : selectedCue.id === 'future' ? 'This is about future joy, not company now. If you want someone beside you today, go back and choose a call or invitation.' : 'What sounds welcome? A small version counts. You can always go back and try another direction.', choices: ids.map(id => ({ id, label: activities[id][0], detail: activities[id][1] })) };
         }
         const examples = touches[selected[2]];
         const chore = selected[2] === 'chore';
@@ -316,7 +327,8 @@
         return { image, stage: 'done', title: 'For now, ' + selected[0][0].toLowerCase() + selected[0].slice(1) + '.', description: extra + 'You can try it for a few minutes. You do not need to fill two hours.\n\nYou can put this page down and begin, or change your mind. Either is fine.', choices: [] };
       },
       choose(id) {
-        if (!this.view().choices.some(choice => choice.id === id)) return;
+        const view = this.view();
+        if (id !== view.invitation?.id && !view.choices.some(choice => choice.id === id)) return;
         path.push(id);
         this.render();
       },
@@ -338,9 +350,9 @@
         document.getElementById('description').textContent = view.description;
         const choices = document.getElementById('choices');
         choices.replaceChildren();
-        for (const choice of view.choices) {
+        for (const choice of [...view.choices, ...(view.invitation ? [view.invitation] : [])]) {
           const button = document.createElement('button');
-          button.type = 'button'; button.className = 'choice';
+          button.type = 'button'; button.className = choice === view.invitation ? 'quiet' : 'choice';
           const label = document.createElement('span');
           label.className = 'choice-title'; label.textContent = choice.label;
           button.append(label);
