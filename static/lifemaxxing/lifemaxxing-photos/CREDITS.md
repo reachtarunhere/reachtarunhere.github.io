@@ -1,6 +1,6 @@
 # A little album · photo credits
 
-All 35 photographs are from Unsplash under the [Unsplash Licence](https://unsplash.com/license), which permits free personal use and modification. Downloaded, resized and centre-cropped to 1200 × 675 JPEG; existing images were compressed with macOS sips, additions with Unsplash's JPEG resizing service (quality 72, or 48 for two detailed scenes). Every file is under 200 KiB. No colour filters added. The originals remain with their photographers; these pictures are invitations, not photos of our own home or life. Path and hills share three outdoor images; the other ten pools have three or four each.
+47 local photographs: the original 35 from Unsplash under the [Unsplash Licence](https://unsplash.com/license), plus 12 adult company scenes from Pexels under the [Pexels License](https://www.pexels.com/license/). Both permit free website use and modification. Images are resized and centre-cropped to 1200 × 675 JPEG, each under 200 KiB. The Pexels additions use its JPEG resizing service; the detailed park-stroll scene was additionally compressed with macOS sips at quality 35. No colour filters added. These are illustrative everyday scenes, not photographs of our own lives or endorsements by the people shown.
 
 | Local file | Photographer | Original source | Licence |
 | --- | --- | --- | --- |
@@ -39,5 +39,17 @@ All 35 photographs are from Unsplash under the [Unsplash Licence](https://unspla
 | sunset-cloud.jpg | Wolf Zimmermann | https://unsplash.com/photos/6sf5rf8QYFE | Unsplash Licence |
 | pink-cumulus.jpg | Andrea Ferrario | https://unsplash.com/photos/QZIaFR0jQZc | Unsplash Licence |
 | delhi-golden-clouds.jpg | Dewang Gupta | https://unsplash.com/photos/ESEnXckWlLY | Unsplash Licence |
+| hiking-friends.jpg | Kamaji Ogino | https://www.pexels.com/photo/happy-diverse-male-friends-smiling-while-relaxing-during-hiking-trip-in-nature-5065188/ | Pexels License |
+| forest-friends.jpg | Ivan S. | https://www.pexels.com/photo/people-hiking-together-9630181/ | Pexels License |
+| woodland-hikers.jpg | PNW Production | https://www.pexels.com/photo/people-hiking-in-a-forest-7624979/ | Pexels License |
+| picnic-laughter.jpg | Ashford Marx | https://www.pexels.com/photo/laughing-friends-having-fun-on-picnic-7150075/ | Pexels License |
+| blanket-conversation.jpg | KoolShooters | https://www.pexels.com/photo/a-group-of-friends-lying-on-a-picnic-blanket-while-having-conversation-8530188/ | Pexels License |
+| seaside-pizza.jpg | RDNE Stock project | https://www.pexels.com/photo/happy-people-eating-pizza-together-7348858/ | Pexels License |
+| couple-under-trees.jpg | Luis Zambrano | https://www.pexels.com/photo/man-and-woman-smiling-at-each-other-under-a-tree-21918724/ | Pexels License |
+| couple-park-stroll.jpg | Luis Zambrano | https://www.pexels.com/photo/couple-walking-in-park-16756617/ | Pexels License |
+| sofa-laughter.jpg | Jeff Vinluan | https://www.pexels.com/photo/photo-of-friends-sitting-on-a-sofa-while-laughing-10549083/ | Pexels License |
+| friends-preparing-food.jpg | Yan Krukau | https://www.pexels.com/photo/women-preparing-food-7315181/ | Pexels License |
+| kitchen-laughter.jpg | PNW Production | https://www.pexels.com/photo/women-standing-and-laughing-at-the-kitchen-8091152/ | Pexels License |
+| couple-cooking.jpg | Vitaly Gariev | https://www.pexels.com/photo/couple-enjoying-cooking-together-in-kitchen-36697450/ | Pexels License |
 
-The previous picnic-with-wine image was removed; the picnic pool now uses fruit, waffles and an empty woodland table. The original book-on-linen photo remains alongside new book-and-lamp scenes. Candidates were selected using source descriptions for everyday scenes without alcohol or identifiable faces. Source metadata was checked, but no pixel-level visual review was performed; automated checks validate files, dimensions, size, pool matching, and attribution, not faces or composition.
+The previous picnic-with-wine image was removed; the picnic pool keeps fruit, waffles and an empty woodland table alongside the new shared picnic scenes. The original book-on-linen photo remains alongside new book-and-lamp scenes. The original quiet scenes were selected from source descriptions. The new people collection was selected for adult friends hiking, picnic conversation and laughter, shared food, couples strolling, and cosy ordinary moments; identifiable adults are intentional. No office/team/laptop-smile or fitness-ad scenes were selected. Source descriptions were screened to avoid children, alcohol and sexualized imagery, but these exclusions and candidness could not be confirmed at pixel level: the available tools return text only, not visible images. Automated checks validate files, dimensions, size, pool matching and attribution, not people, incidental objects or composition.

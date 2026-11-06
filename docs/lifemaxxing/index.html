@@ -268,14 +268,33 @@
         { src: 'lifemaxxing-photos/delhi-golden-clouds.jpg', alt: 'Cumulus clouds over New Delhi during golden hour.', caption: 'An ordinary evening worth noticing.' }
       ]
     };
-    const feelingPhotos = { possibilities: 'tea', physical: 'tea', weighed: 'table', flat: 'plants', lonely: 'sofa', full: 'book', good: 'hills', unsure: 'tea', carry: 'path' };
-    const cuePhotos = { depleted: 'tea', sluggish: 'path', stiff: 'sofa', tired: 'sofa', routine: 'path', interesting: 'book', story: 'picnic', small: 'plants', future: 'hills', screens: 'tea', world: 'book', quietcompany: 'sofa', warmth: 'sofa', body: 'hills', special: 'picnic' };
+    photos.company = [
+      { src: 'lifemaxxing-photos/hiking-friends.jpg', alt: 'Two male friends smiling together during a woodland hike.', caption: photos.path[0].caption },
+      { src: 'lifemaxxing-photos/forest-friends.jpg', alt: 'A group of friends hiking together through leafy forest.', caption: photos.hills[0].caption },
+      { src: 'lifemaxxing-photos/woodland-hikers.jpg', alt: 'Friends walking through the woods with trekking poles.', caption: photos.hills[1].caption },
+      { src: 'lifemaxxing-photos/picnic-laughter.jpg', alt: 'Women friends laughing together at an outdoor picnic.', caption: photos.picnic[0].caption },
+      { src: 'lifemaxxing-photos/blanket-conversation.jpg', alt: 'Women friends relaxing and talking on a picnic blanket.', caption: photos.picnic[1].caption },
+      { src: 'lifemaxxing-photos/seaside-pizza.jpg', alt: 'Friends sharing pizza on a picnic blanket beside the ocean.', caption: photos.picnic[2].caption },
+      { src: 'lifemaxxing-photos/couple-under-trees.jpg', alt: 'A couple smiling at each other beneath a leafy park tree.', caption: photos.path[0].caption },
+      { src: 'lifemaxxing-photos/couple-park-stroll.jpg', alt: 'A couple strolling together through a green park.', caption: photos.path[2].caption },
+      { src: 'lifemaxxing-photos/sofa-laughter.jpg', alt: 'Two women laughing together while relaxing on a sofa.', caption: photos.sofa[0].caption },
+      { src: 'lifemaxxing-photos/friends-preparing-food.jpg', alt: 'Women friends preparing food together in a home kitchen.', caption: photos.food[0].caption },
+      { src: 'lifemaxxing-photos/kitchen-laughter.jpg', alt: 'Two women laughing together beside a kitchen blender.', caption: photos.food[1].caption },
+      { src: 'lifemaxxing-photos/couple-cooking.jpg', alt: 'A couple sharing a happy moment while cooking together.', caption: photos.food[0].caption }
+    ];
+    photos.path.push(photos.company[0], photos.company[6], photos.company[7]);
+    photos.hills.push(photos.company[0], photos.company[1], photos.company[2]);
+    photos.picnic.push(photos.company[3], photos.company[4], photos.company[5]);
+    photos.food.push(photos.company[5], photos.company[9], photos.company[10], photos.company[11]);
+    photos.home = [...photos.path.slice(0, 3), photos.company[0], photos.company[3], photos.company[8]];
+    const feelingPhotos = { possibilities: 'tea', physical: 'tea', weighed: 'table', flat: 'plants', lonely: 'company', full: 'book', good: 'hills', unsure: 'tea', carry: 'path' };
+    const cuePhotos = { wife: 'company', share: 'company', friends: 'company', possibilitycompany: 'company', depleted: 'tea', sluggish: 'path', stiff: 'sofa', tired: 'sofa', routine: 'path', interesting: 'book', story: 'picnic', small: 'plants', future: 'hills', screens: 'tea', world: 'book', quietcompany: 'sofa', warmth: 'sofa', body: 'hills', special: 'picnic' };
     const activityPhotos = {
       water: 'tea', balcony: 'tea', tea: 'tea', unsuretea: 'tea',
-      walk: 'path', walkwife: 'path', unsurewalk: 'path', scene: 'city', event: 'city', meetup: 'city', photo: 'sky', temple: 'temple',
+      walk: 'path', walkwife: 'company', unsurewalk: 'path', scene: 'city', event: 'city', meetup: 'company', family: 'company', friend: 'company', invite: 'company', photo: 'sky', temple: 'temple',
       novel: 'book', taleb: 'book', learn: 'book', unsurebook: 'book',
       picnic: 'picnic', plants: 'plants', hike: 'hills', hikeplan: 'hills',
-      rest: 'sofa', nap: 'sofa', watchwife: 'sofa', chatwife: 'sofa', film: 'sofa', comedy: 'sofa', wholesome: 'sofa', unsurecompany: 'sofa',
+      rest: 'sofa', nap: 'sofa', watchwife: 'company', chatwife: 'company', film: 'sofa', comedy: 'sofa', wholesome: 'sofa', unsurecompany: 'company',
       firststep: 'table', helper: 'table', park: 'table', plan: 'table', sessionplan: 'table', dump: 'table', tidy: 'table', work: 'table', yoghurt: 'food', meal: 'food', cook: 'food'
     };
     const possibilitiesInvitation = { id: 'possibilities', label: 'Nothing quite fits? Bring some possibilities to mind' };
@@ -290,7 +309,7 @@
         const invitation = feeling === 'possibilities' ? undefined : possibilitiesInvitation;
         const key = path.join('/');
         if (sceneKey !== key) {
-          const pool = photos[activityPhotos[feeling === 'unsure' ? cue : activity] || cuePhotos[cue] || feelingPhotos[feeling] || 'path'];
+          const pool = photos[activityPhotos[feeling === 'unsure' ? cue : activity] || cuePhotos[cue] || feelingPhotos[feeling] || (feeling ? 'path' : 'home')];
           const candidates = pool.filter(photo => photo.src !== sceneImage?.src);
           sceneImage = candidates[Math.floor(Math.random() * candidates.length)];
           sceneKey = key;
