@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <title>A warm sun over quiet green hills</title>
+  <!-- Original Lifemaxxing artwork. The landscape sits inside a padded round window. -->
+  <defs>
+    <clipPath id="landscape"><circle cx="256" cy="256" r="170"/></clipPath>
+  </defs>
+  <path fill="#f6f2e9" d="M0 0h512v512H0z"/>
+  <g clip-path="url(#landscape)">
+    <circle cx="256" cy="256" r="170" fill="#e7ecdf"/>
+    <circle cx="290" cy="196" r="60" fill="#914832"/>
+    <path fill="#8b9d87" d="M66 310C146 206 212 224 284 290S390 340 446 274V446H66z"/>
+    <path fill="#596359" d="M66 374C152 396 218 288 292 294S402 348 446 366V446H66z"/>
+  </g>
+</svg>

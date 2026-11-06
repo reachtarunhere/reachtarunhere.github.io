@@ -1,0 +1,23 @@
+{
+  "name": "Lifemaxxing",
+  "short_name": "Lifemaxxing",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#f6f2e9",
+  "background_color": "#f6f2e9",
+  "icons": [
+    {
+      "src": "lifemaxxing-icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "lifemaxxing-icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
