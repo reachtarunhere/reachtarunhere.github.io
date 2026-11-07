@@ -105,6 +105,7 @@
       weighed: [
         { id: 'unfinished', label: 'An unfinished thing keeps tugging at me', prompt: 'What keeps coming back to mind? What would make it feel lighter?', activities: ['firststep', 'helper', 'park'] },
         { id: 'worried', label: 'I’m worried about how things will get done', prompt: 'Would seeing the pieces on paper make this feel lighter?', activities: ['plan', 'dump'] },
+        { id: 'overwhelmed', label: 'Overwhelmed by too many pursuits at once', prompt: 'As a mere mortal, what would feel like relief right now: setting some pursuits down for a while, or shrinking one goal into a single bite?', activities: ['release', 'resize'] },
         { id: 'surroundings', label: 'My surroundings are annoying me', prompt: 'Would clearing my desk make being here more pleasant?', activities: ['tidy'] }
       ],
       flat: [
@@ -157,6 +158,8 @@
       firststep: ['Do only the first ten minutes', 'Open it and do the part you already know. Stopping after ten minutes counts.', 'chore'],
       helper: ['Ask for help or hand part of it off', 'Ask one question, share the load, or let someone else take a piece.', 'chore'],
       park: ['Let it go for now', 'Pick a time to come back to it, write that down, and stop carrying it today.', 'park'],
+      release: ['Consciously let go of some pursuits for a while', 'Choose what can rest for the next week, month, or longer. Writing the return date makes it a deliberate letting-go, not a failure.', 'release'],
+      resize: ['Resize the big goal into one bite', 'Ask what the smallest piece is that would still count as a real start. Eat just that bite; the rest of the goal can wait.', 'chore'],
       sessionplan: ['Plan a work session', 'What would I enjoy making progress on in this next stretch? Choose a starting point; the plan can change.', 'work'],
       plan: ['Sketch a project or weekly plan', 'Choose what I’d like to move forward and make room for this week. Put the pieces on paper.', 'work'],
       dump: ['Do a brain dump', 'Write down what is floating around. It need not be tidy.', 'work'],
@@ -207,6 +210,7 @@
       company: ['Sit somewhere pleasant, or suggest a nearby walk.', 'Keep it simple with someone whose company feels easy.', 'Make a cup of tea and put other distractions aside.'],
       chore: ['Pick one piece: gather the papers, fill one section, or send one email.', 'Ask your wife or a friend to sit nearby, or do it together on a call.', 'Put on music or a podcast, make tea, and plan a small treat afterward.'],
       park: ['Write it on a note and put the papers out of sight.', 'Tell your wife when you will do it, so you can both stop thinking about it.', 'Close the tab or folder as a small goodbye for today.'],
+      release: ['Write the return date on a note, so the letting-go has an end.', 'Say out loud to your wife or a friend what you are setting down for now.', 'Close the tab or put the papers out of sight as a small goodbye.'],
       future: ['Suggest a greener route or a favourite place to eat.', 'Invite someone you would genuinely like to spend time with.', 'Suggest a shared tea or meal as part of the plan.']
     };
     const photos = {
@@ -300,7 +304,7 @@
       novel: 'book', taleb: 'book', learn: 'book', unsurebook: 'book',
       picnic: 'picnic', plants: 'plants', hike: 'hills', hikeplan: 'hills',
       rest: 'sofa', nap: 'sofa', watchwife: 'company', chatwife: 'company', film: 'sofa', comedy: 'sofa', wholesome: 'sofa', unsurecompany: 'company',
-      firststep: 'table', helper: 'table', park: 'table', plan: 'table', sessionplan: 'table', dump: 'table', tidy: 'table', work: 'table', yoghurt: 'food', meal: 'food', cook: 'food'
+      firststep: 'table', helper: 'table', park: 'table', release: 'table', resize: 'table', plan: 'table', sessionplan: 'table', dump: 'table', tidy: 'table', work: 'table', yoghurt: 'food', meal: 'food', cook: 'food'
     };
     const possibilitiesInvitation = { id: 'possibilities', label: 'Nothing quite fits? Bring some possibilities to mind' };
     let path = [];
@@ -335,9 +339,11 @@
         const examples = touches[selected[2]];
         const chore = selected[2] === 'chore';
         const park = selected[2] === 'park';
+        const release = selected[2] === 'release';
         const labels = chore
           ? ['Make it smaller', 'Do it alongside someone', 'Pair it with something nice', 'Just get it done']
           : park ? ['Write it down', 'Tell someone', 'A small goodbye', 'Just let it go']
+          : release ? ['Write the return date', 'Say it out loud', 'A small goodbye', 'Just let it go']
           : ['Somewhere lovely', 'With someone', 'A small ritual', 'Just as it is'];
         const options = [
           { id: 'place', label: labels[0], detail: examples[0] },
@@ -345,9 +351,10 @@
           { id: 'ritual', label: labels[2], detail: examples[2] },
           { id: 'plain', label: labels[3], detail: chore ? 'No extra setup. Do it and be done.' : park ? 'Nothing else needed. Deciding is enough.' : 'No extra preparation. This is already enough.' }
         ];
-        if (!touchId) return { image, stage: 'touch', title: chore ? 'What would make this less painful?' : park ? 'How could I set it down for now?' : 'Would I enjoy this more somewhere else, with someone, or with a small ritual?', description: 'You’ve chosen: ' + selected[0] + '.\nOnly add a touch if it makes this nicer, not harder.', choices: options };
+        if (!touchId) return { image, stage: 'touch', title: chore ? 'What would make this less painful?' : park ? 'How could I set it down for now?' : release ? 'How could I set these down for a while?' : 'Would I enjoy this more somewhere else, with someone, or with a small ritual?', description: 'You’ve chosen: ' + selected[0] + '.\nOnly add a touch if it makes this nicer, not harder.', choices: options };
         const extra = (touchId === 'plain' ? '' : options.find(c => c.id === touchId).detail + '\n\n')
-          + (activityId === 'park' ? 'This time is allowed to be yours. The task will still be there later.\n\n' : '');
+          + (activityId === 'park' ? 'This time is allowed to be yours. The task will still be there later.\n\n' : '')
+          + (activityId === 'release' ? 'Letting go for a while is allowed. These pursuits will still be there when you come back.\n\n' : '');
         return { image, stage: 'done', title: 'For now, ' + selected[0][0].toLowerCase() + selected[0].slice(1) + '.', description: extra + 'You can try it for a few minutes. You do not need to fill two hours.\n\nYou can put this page down and begin, or change your mind. Either is fine.', choices: [] };
       },
       choose(id) {
